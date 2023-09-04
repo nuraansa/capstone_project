@@ -42,7 +42,7 @@ export default {
 </script>
 <style scoped>
 .footer {
-    background-color: #F7D0AB;
+    background-color: #ffffff;
 }
 
 .foot {
@@ -67,7 +67,7 @@ a {
 }
 
 .social:hover {
-    color: #f7f7f788;
+    color: #F7D0AB;
     font-size: 35px;
     transition: 0.4s;
 }
@@ -79,13 +79,13 @@ a {
 }
 
 .social1:hover {
-    color: #f7f7f788;
+    color: #F7D0AB;
     font-size: 22px;
     transition: 0.4s;
 }
 
 .rl:hover {
-    color: #f7f7f788;
+    color: #F7D0AB;
     font-size: 22px;
     transition: 0.4s;
 }
