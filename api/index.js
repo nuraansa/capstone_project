@@ -17,7 +17,7 @@ app.use((req, res, next)=>{
 })
 
 routes.get('^/$|/home',(req, res)=>{
-    res.sendFile(path.resolve(__dirname, './static/HTML/index.html'))
+    res.sendFile(path.resolve(__dirname, './static/html/index.html'))
 })
 
 app.use(
