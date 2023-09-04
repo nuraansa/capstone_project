@@ -4,7 +4,7 @@ const app = express()
 const path = require('path')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
-const errorHandling = require('./middleware/errorHandling')
+const errorHandling = require('./middleware/errorhandling')
 const port = +process.env.PORT || 3000
 
 app.use((req, res, next)=>{
