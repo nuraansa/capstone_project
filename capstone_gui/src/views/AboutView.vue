@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1 class="display-1 p-1 glow me">About Us</h1>
-    <img class="img-fluid" src="https://i.ibb.co/VJzzZrn/IMG-2502.jpg" style="width: 65rem;">
+    <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 70rem;">
     <div class="container">
       <div class="row mx-auto m-5">
         <div class="col glow">
@@ -16,10 +16,10 @@
       <!-- card1 -->
       <div class="card mb-3 mx-auto" style="width: 60rem;">
         <div class="row g-0">
-          <div class="col-md-5">
+          <div class="col-md-4">
             <img src="https://i.ibb.co/JHV7q2B/AIMG-2507.jpg" class="img-fluid rounded-start" alt="...">
           </div>
-          <div class="col-md-7 mx-auto d-flex">
+          <div class="col-md-8 mx-auto d-flex">
             <div class="card-body">
               <h5 class="card-title">DURABLE:</h5>
               <p class="card-text">
@@ -50,10 +50,10 @@
       <!-- card3 -->
       <div class="card mb-3 mx-auto" style="width: 60rem;">
         <div class="row g-0">
-          <div class="col-md-5">
+          <div class="col-md-4">
             <img src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" class="img-fluid rounded-start" alt="...">
           </div>
-          <div class="col-md-7 mx-auto d-flex">
+          <div class="col-md-8 mx-auto d-flex">
             <div class="card-body">
               <h5 class="card-title">ENVIRONMENTAL FRIENDLY:</h5>
               <p class="card-text">
