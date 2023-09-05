@@ -1,6 +1,11 @@
 <template>
-    <div>
-        <h1>Prods</h1>
+    <div class="products">
+        <div class="container">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
     </div>
 </template>
 

@@ -30,8 +30,8 @@
                         <!-- dropdown -->
                         <li class="nav-item dropdown mx-auto">
                             <router-link to="/" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false"><i class="bi bi-bag-heart"
-                                    style="font-size: 2.4rem;"></i></router-link>
+                                aria-expanded="false" style="margin-right: 3rem;"><i class="bi bi-bag-heart"
+                                    style="font-size: 2.4rem; "></i></router-link>
                             <ul class="dropdown-menu">
                                 <li><router-link to="/" class="dropdown-item">Home</router-link></li>
                                 <li><router-link to="/" class="dropdown-item">Home</router-link></li>

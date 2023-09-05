@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>T&C's</h1>
+        <h1 class="display-3 p-5 glow">Terms & Conditions</h1>
     </div>
 </template>
 
@@ -11,5 +11,9 @@
 </script>
 
 <style scoped>
-
+.glow {
+  color: #92700f;
+  text-align: center;
+  /* animation: glow 1s ease-in-out infinite alternate; */
+}
 </style>
