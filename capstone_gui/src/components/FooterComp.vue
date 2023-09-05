@@ -1,39 +1,32 @@
 <template>
-    <div class="footer card-footer p-3">
-        <div class="container-fluid text-center">
-            <div class="row row-cols-2 row-cols-sm-3 d-flex so">
-                <div class="col fcols">
-                    <ul>
-                        <li class="p-3"><router-link class="rl" to="/">Home</router-link></li>
-                        <li class="p-3"><router-link class="rl" to="/about">About</router-link></li>
+    <div class="footer card-footer p-3"> <hr>
+        <div class="container text-center">
+           <div class="row">
+                <div class="col"> <img src="https://i.ibb.co/YbhMKWp/veclogo.png" alt="" style="width: 7rem;">
+            
+                    <ul class="d-flex" style="align-items: center; flex-wrap: wrap;">
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/">Home</router-link></li> |
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/about">About</router-link></li> |
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/products">Products</router-link></li> |
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/contact">Contact</router-link></li> |
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/tc">Terms & Conditions</router-link></li>
+                        <!-- <li class="p-3"><i class="bi bi-telephone social1 d-flex">+27 12 345 6789</i></li>
+                        <li class="p-3"><i class="bi bi-envelope social1 d-flex">lilyjewels@gmail.com</i></li> -->
                     </ul>
                 </div>
-                <div class="col fcols">
-                    <ul>
-                        <li class="p-3"><router-link class="rl" to="/products">Products</router-link></li>
-                        <li class="p-3"><router-link class="rl" to="/contact">Contact</router-link></li>
-
-                    </ul>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr>
+                    <h5 class="p-3" style="color: rgb(0, 0, 0);">Follow our Social Media</h5>
+                    <i class="social bi bi-instagram"><a href="https://www.instagram.com/"></a></i>
+                    <i class="social bi bi-tiktok"><a href="https://www.tiktok.com/login"></a></i>
+                    <i class="social bi bi-facebook"><a href="https://m.facebook.com/login/?locale=en_GB"></a></i>
+                    <div class="p-sm-3">Lily Jewels &copy; 2023 | All Rights Reserved. </div>
                 </div>
-                <div class="col  fcols1 d-flex go">
-                    <ul class="p-0">
-                        <li class="p-3"><i class="bi bi-telephone social1 d-flex">+27 12 345 6789</i></li>
-                        <li class="p-3"><i class="bi bi-envelope social1 d-flex">lilyjewels@gmail.com</i></li>
-                    </ul>
-                </div>
-
-                <div class="container">
-                        <li class="p-1">
-                            <hr>
-                            <h5 style="color: rgb(0, 0, 0);">Follow our Social Media</h5>
-                            <i class="social bi bi-instagram"><a href="https://www.instagram.com/"></a></i>
-                            <i class="social bi bi-tiktok"><a href="https://www.tiktok.com/login"></a></i>
-                            <i class="social bi bi-facebook"><a href="https://m.facebook.com/login/?locale=en_GB"></a></i>
-                            <p class="fcols1">&copy; 2023 Lily Jewels, All Rights Reserved. </p>
-                        </li>
-                    </div>
             </div>
         </div>
+
     </div>
 </template>
 <script>
@@ -51,13 +44,18 @@ export default {
     height: 6rem;
     bottom: 0;
 }
-li{
-   list-style: none;
+ul{
+    justify-content: center;
+    align-items: center;
 }
+li {
+    list-style: none;
+}
+
 a {
     text-decoration: none;
     color: #000000;
-    font-size: 21px;
+    font-size: 1.2rem;
 }
 
 .social {
@@ -67,7 +65,7 @@ a {
 }
 
 .social:hover {
-    color: #F7D0AB;
+    color: #92700f;
     font-size: 35px;
     transition: 0.4s;
 }
@@ -79,24 +77,31 @@ a {
 }
 
 .social1:hover {
-    color: #F7D0AB;
+    color: #92700f;
     font-size: 22px;
     transition: 0.4s;
 }
 
 .rl:hover {
-    color: #F7D0AB;
+    color: #92700f;
     font-size: 22px;
     transition: 0.4s;
 }
 
-@media (max-width: 780px) {
-    .so{
+@media (max-width: 599px) {
+    /* .so {
         margin: 1rem;
+    } */
+    /* a{
+        font-size: 1rem;
+    } */
+    .tc{
+        flex-wrap: wrap;
     }
 }
+
 @media (max-width: 808px) {
-    .ul{
+    .ul {
         display: flexbox;
     }
 }
