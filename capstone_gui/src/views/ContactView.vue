@@ -3,7 +3,6 @@
       <div class="container">
         <h1 class="display-2 cu">Contact Us</h1>
         <div class="row justify-content-center">
-  
           <div class="col">
             <div class="card card1 mx-auto p-4">
               <span class="title" style="color: #92700f;">Leave a Comment</span>
@@ -132,7 +131,7 @@
   .form .group input,
   .form .group textarea {
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 4px;
     border: 1px solid rgba#92700f;
     margin-bottom: 20px;
     outline: 0;
