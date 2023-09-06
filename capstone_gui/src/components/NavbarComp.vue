@@ -1,9 +1,8 @@
 <template>
     <div>
-        <div class="overlay glow mt-3">˖°.✧ Welcome to Lily Jewels ✧.°˖</div>
-        <hr>
+        <div class="overlay glow m-3">˖°.✧ Welcome to Lily Jewels ✧.°˖</div>
         <!-- nav -->
-        <nav class="navbar navbar-expand-lg nav-underline" style="background-color: #ffffff;">
+        <nav class="navbar navbar-expand-lg " style="background-color: #F7D0AB;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/"><img id="logo" src="https://i.ibb.co/YbhMKWp/veclogo.png" alt="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -29,16 +28,17 @@
                     <div class="nav">
                         <!-- dropdown -->
                         <li class="nav-item dropdown mx-auto">
-                            <router-link to="/" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false" style="margin-right: 3rem;"><i class="bi bi-bag-heart"
-                                    style="font-size: 2.4rem; "></i></router-link>
+                            <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false"><i class="bi bi-bag-heart"
+                                    style="font-size: 2.4rem; "></i>
+                            </button>
                             <ul class="dropdown-menu">
-                                <li><router-link to="/admin" class="dropdown-item">Admin</router-link></li>
-                                <li><router-link to="/" class="dropdown-item">Home</router-link></li>
+                                <li><router-link to="/" class="dropdown-item">Register</router-link></li>
+                                <li><router-link to="/" class="dropdown-item">Login</router-link></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><router-link to="/" class="dropdown-item">Home</router-link></li>
+                                <li><router-link to="/admin" class="dropdown-item">Admin</router-link></li>
                             </ul>
                         </li>
                     </div>
@@ -73,6 +73,22 @@ export default {
 .nav-link:hover {
     color: #000000;
     font-size: 1.5rem;
+}
+
+.dropdown button{
+    width: 10rem;
+}
+
+.dropdown .bi-bag-heart{
+    padding-left: 5rem;
+}
+
+.dropdown-menu{
+    margin-right: 15rem !important;
+}
+
+.dropdown-item {
+    color: #92700f;
 }
 
 .glow {

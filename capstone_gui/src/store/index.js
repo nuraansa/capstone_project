@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import axios from "axios";
 
-const dataUrl = "https://lily-jewels.onrender.com";
+const dataUrl = "https://lily-jewels.onrender.com/";
 
 export default createStore({
   state: {
@@ -76,7 +76,7 @@ export default createStore({
 
     async fetchProducts(context) {
       try {
-        const { data } = await axios.get(`${dataUrl}products`);
+        const { data } = await axios.get(`${dataUrl}items`);
         context.commit("setProducts", data.results);
       } catch (e) {
         context.commit("setMsg", "Oops! An error has occured");
@@ -84,7 +84,7 @@ export default createStore({
     },
     async fetchProduct(context, prodID) {
       try {
-        const { data } = await axios.get(`${dataUrl}product/${prodID}`) 
+        const { data } = await axios.get(`${dataUrl}items/${prodID}`) 
         context.commit("setProduct", data.result)
       } catch(e) {
         context.commit("setMsg", "Oops! An error occured")
@@ -93,7 +93,7 @@ export default createStore({
     // Product CRUD
     async submitProduct(context, payload) {
       try {
-        const response = await axios.post(`${dataUrl}product`, payload);
+        const response = await axios.post(`${dataUrl}items`, payload);
         if (response) {
           context.commit("addProduct", response.data);
           location.reload()
@@ -107,7 +107,7 @@ export default createStore({
     },
     async deleteProduct(context, prodID) {
       try {
-        const response = await axios.delete(`${dataUrl}product/${prodID}`);
+        const response = await axios.delete(`${dataUrl}item/${prodID}`);
         if(response) {
           location.reload()
           context.commit('dltProduct', response)

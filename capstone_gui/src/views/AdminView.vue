@@ -1,79 +1,70 @@
 <template>
-    <section id="admin" class="adm">
+  <section id="admin" class="adm">
+    <div class="container-fluid">
+      <h1 class="display-2 text-center mt-2">
+        Admin
+        <hr>
+      </h1>
+      <h1 class="display-3 text-center mb-2 p-2">
+        Product Interface
+      </h1>
       <div class="container-fluid">
-        <h1
-          class="display-2 text-center mt-2"
-        >
-          Admin <hr>
-        </h1>
-        <h1
-          class="display-3 text-center mb-2 p-2"
-        >
-          Product Interface
-        </h1>
-        <div class="container-fluid">
-          <button class="btn2 float-start" id="sort">Sort By ID(asc/desc)</button>
-          <addButton/>
-        </div>
-        <table
-          class="table table-responsive table-bordered border-black table-light table-hover" v-if="products"
-        >
-          <thead>
-            <tr>
-              <th scope="col">ID#</th>
-              <th scope="col">Title</th>
-              <th scope="col d-none d-sm-block">Image</th>
-              <th scope="col d-none d-sm-block">Description</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="product in products" :key="product.prodID">
-              <th>
-                <div class="tableRows">{{ product.prodID }}</div>
-              </th>
-              <td>
-                <div class="tableRows">{{ product.prodName }}</div>
-              </td>
-              <td>
-                <div class="tableRows d-none d-sm-block">
-                  <img class="img-fluid" :src="product.prodUrl" :alt="product.prodName" loading="lazy" />
-                </div>
-              </td>
-              <td>
-                <div class="tableRows d-none d-sm-block">{{ product.details }}</div>
-              </td>
-              <td>
-                <div class="tableRows">R{{ product.amount }}</div>
-              </td>
-              <td>
-                <div class="tableRows">
-                  <editButton :product="product"/>
-                  <button @click.prevent="deleteContent(product.prodID)" class="btn1" id="deleteBtn">Delete</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div v-else class="row">
-          <spinner/>
-        </div>
+        <button class="btn2 float-start" id="sort">Sort By</button>
+        <addButton />
       </div>
-      <section class="users" id="users">
-        <div class="container-fluid">
-        <h1
-          class="display-3 text-center mb-2 p-4"
-        >
+      <table class="table table-responsive table-bordered border-black table-light table-hover" v-if="products">
+        <thead>
+          <tr>
+            <th scope="col">ID#</th>
+            <th scope="col d-none d-sm-block">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col d-none d-sm-block">Description</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="product in products" :key="product.prodID">
+            <th>
+              <div class="tableRows">{{ product.prodID }}</div>
+            </th>
+            <td>
+              <div class="tableRows d-none d-sm-block">
+                <img class="img-fluid" :src="product.prodUrl" :alt="product.prodName" loading="lazy" />
+              </div>
+            </td>
+            <td>
+              <div class="tableRows">{{ product.prodName }}</div>
+            </td>
+            <td>
+              <div class="tableRows d-none d-sm-block">{{ product.prodDesc }}</div>
+            </td>
+            <td>
+              <div class="tableRows">R{{ product.price }}</div>
+            </td>
+            <td>
+              <div class="tableRows">
+                <editButton :product="product" />
+                <button @click.prevent="deleteContent(product.prodID)" class="btn1" id="deleteBtn">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div v-else class="row">
+        <spinner />
+      </div>
+    </div>
+    <section class="users" id="users">
+      <div class="container-fluid">
+        <h1 class="display-3 text-center mb-2 p-4">
           User Interface
         </h1>
         <div class="container-fluid">
-          <button class="btn2 float-start" id="sort">Sort By ID(asc/desc)</button>
-          <userAdd/>
+          <button class="btn2 float-start" id="sort">Sort By</button>
+          <userAdd />
         </div>
-        <table
-          class="table table-responsive table-bordered border-black table-secondary table-hover" v-if="users"
-        >
+        <table class="table table-responsive table-bordered border-black table-secondary table-hover" v-if="users">
           <thead>
             <tr>
               <th scope="col">ID#</th>
@@ -88,7 +79,7 @@
           <tbody>
             <tr v-for="user in users" :key="user.userID">
               <th>
-                <div class="tableRows">{{ user.userID}}</div>
+                <div class="tableRows">{{ user.userID }}</div>
               </th>
               <td>
                 <div class="tableRows">
@@ -96,7 +87,7 @@
                 </div>
               </td>
               <td>
-                <div class="tableRows">{{ user.firstName }}  {{ user.lastName }}</div>
+                <div class="tableRows">{{ user.firstName }} {{ user.lastName }}</div>
               </td>
               <td>
                 <div class="tableRows">{{ user.gender }}</div>
@@ -109,7 +100,7 @@
               </td>
               <td>
                 <div class="tableRows">
-                  <userEdit :user="user"/>
+                  <userEdit :user="user" />
                   <button @click.prevent="deleteUser(user.userID)" class="btn1" id="deleteBtn">Delete</button>
                 </div>
               </td>
@@ -117,105 +108,106 @@
           </tbody>
         </table>
         <div v-else class="row">
-          <spinner/>
+          <spinner />
         </div>
       </div>
-      </section>
     </section>
-  </template>
+  </section>
+</template>
   
-  <script>
-  import addButton from "@/components/AddProductComp.vue"
-  import editButton from "@/components/EditProductComp.vue"
-  import userAdd from "@/components/AddUserComp.vue"
-  import userEdit from "@/components/EditUserComp.vue"
-  import spinner from "@/components/SpinnerComp.vue"
-  export default {
-    components: {
-      addButton, editButton, userAdd, userEdit, spinner
+<script>
+import addButton from "@/components/AddProductComp.vue"
+import editButton from "@/components/EditProductComp.vue"
+import userAdd from "@/components/AddUserComp.vue"
+import userEdit from "@/components/EditUserComp.vue"
+import spinner from "@/components/SpinnerComp.vue"
+export default {
+  components: {
+    addButton, editButton, userAdd, userEdit, spinner
+  },
+  computed: {
+    products() {
+      return this.$store.state.products;
     },
-    computed: {
-      products() {
-        return this.$store.state.products;
-      },
-      product() {
-        return this.$store.state.product;
-      },
-      users() {
-        return this.$store.state.users;
-      },
-      user() {
-        return this.$store.state.user;
-      },
+    product() {
+      return this.$store.state.product;
     },
-    mounted() {
-      this.$store.dispatch("fetchProducts");
-      this.$store.dispatch("fetchProduct");
-      this.$store.dispatch("fetchUsers");
-      this.$store.dispatch("fetchUser");
+    users() {
+      return this.$store.state.users;
     },
-    methods: {
-      async deleteContent(prodID) {
-        this.$store.dispatch('deleteProduct', prodID) 
-      },
-      async deleteUser(userID) {
-        this.$store.dispatch('deleteUser', userID) 
-      }
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchProduct");
+    this.$store.dispatch("fetchUsers");
+    this.$store.dispatch("fetchUser");
+  },
+  methods: {
+    async deleteContent(prodID) {
+      this.$store.dispatch('deleteProduct', prodID)
+    },
+    async deleteUser(userID) {
+      this.$store.dispatch('deleteUser', userID)
     }
-  };
-  </script>
-  
-  <style scoped>
-  
-  .btn1 {
-    background-color: #000000;
-    color: white;
-    padding: 0.3rem;
-    border-radius: 10px;
-    width: 4rem;
-    border: 1px solid black;
   }
+};
+</script>
   
-  .btn1:hover {
-    background-color:white;
-    color: black;
-  }
-  
-  .btn2 {
-    background-color: #000000;
-    color: white;
-    width: 9rem;
-    padding: 0.3rem;
-    border-radius: 10px;
-    border: 1px solid black;
-  }
-  
-  .btn2:hover {
-    background-color: #fffdfd;
-    color: black;
-  }
-  
-  img {
-    width: 11rem;
-  }
-  
-  .tableRows {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    text-align: center;
-  }
-  
-  th {
-    text-align: center;
-  }
-  
-  td {
-    height: 150px;
-  }
-  @media screen and (max-width: 808px) {
-  
-  }
-  </style>
+<style scoped>
+h1{
+  color: #92700f;
+}
+.btn1 {
+  background-color: #92700f;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 10px;
+  width: 4rem;
+  border: 1px solid #92700f;
+}
+
+.btn1:hover {
+  background-color: white;
+  color: #92700f;
+}
+
+.btn2 {
+  background-color: #92700f;
+  color: white;
+  width: 9rem;
+  padding: 0.3rem;
+  border-radius: 10px;
+  border: 1px solid #92700f;
+}
+
+.btn2:hover {
+  background-color: #fffdfd;
+  color: #92700f;
+}
+
+img {
+  width: 11rem;
+}
+
+.tableRows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  height: 150px;
+}
+
+@media screen and (max-width: 808px) {}
+</style>
