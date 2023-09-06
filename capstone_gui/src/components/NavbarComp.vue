@@ -33,7 +33,7 @@
                                 aria-expanded="false" style="margin-right: 3rem;"><i class="bi bi-bag-heart"
                                     style="font-size: 2.4rem; "></i></router-link>
                             <ul class="dropdown-menu">
-                                <li><router-link to="/" class="dropdown-item">Home</router-link></li>
+                                <li><router-link to="/admin" class="dropdown-item">Admin</router-link></li>
                                 <li><router-link to="/" class="dropdown-item">Home</router-link></li>
                                 <li>
                                     <hr class="dropdown-divider">
