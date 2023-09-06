@@ -127,17 +127,17 @@
   }
   
   .btn2 {
-    background-color: #000000;
+    background-color: #92700f;
     color: white;
     width: 4rem;
     padding: 0.3rem;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 1px solid #92700f;
   }
   
   .btn2:hover {
     background-color: #fffdfd;
-    color: black;
+    color: #92700f;
   }
   
   
