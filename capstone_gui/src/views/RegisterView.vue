@@ -1,66 +1,66 @@
 <template>
-    <div class="all">
-        <div class="container d-flex justify-content-center text-align-center align-items-center">
+    <div class="reg">
+        <div class="container d-flex align-items-center justify-content-center">
             <div class="card">
-                <div class="row d-flex justify-content-center text-align-center align-items-center">
-                    <div class="col">
+                <div class="row">
+                    <div class="col m-3">
                         <h1 class="display-3"> Register </h1>
-                        <form class="form-inline" action="/action_page.php" @submit.prevent="register">
+                        <form class="form-inline" id="form" action="/action_page.php" @submit.prevent="register">
                             <div class="form-group">
-                                <label for="email">First Name</label>
+                                <label class="m-2" for="firstName">FIRST NAME</label>
                                 <input type="name" class="form-control" id="firstName" placeholder="Your Name"
                                     v-model="payload.firstName">
                             </div>
                             <br>
                             <div class="form-group">
-                                <!-- <label for="email">Email address:</label> -->
-                                <input type="number" class="form-control" id="userAge" placeholder="userAge"
-                                    v-model="payload.userAge">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <!-- <label for="email">Email address:</label> -->
-                                <input type="text" class="form-control" id="gender" placeholder="gender"
-                                    v-model="payload.gender">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <!-- <label for="email">Email address:</label> -->
-                                <input type="surname" class="form-control" id="lastName" placeholder="Surname"
+                                <label class="m-2" for="lastName"> SURNAME</label>
+                                <input type="surname" class="form-control" id="lastName" placeholder="Your Surname"
                                     v-model="payload.lastName">
                             </div>
                             <br>
                             <div class="form-group">
-                                <!-- <label for="email">Email address:</label> -->
+                                <label class="m-2" for="userAge">AGE</label>
+                                <input type="number" class="form-control" id="userAge" placeholder="Age"
+                                    v-model="payload.userAge">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label class="m-2" for="gender">GENDER</label>
+                                <input type="text" class="form-control" id="gender" placeholder="Gender"
+                                    v-model="payload.gender">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label class="m-2" for="userRole">USER ROLE</label>
                                 <input type="role" class="form-control" id="userRole" placeholder="eg. Admin"
                                     v-model="payload.userRole">
                             </div>
                             <br>
                             <div class="form-group">
-                                <!-- <label for="email">Email address:</label> -->
-                                <input type="email" class="form-control" id="emailAdd" placeholder="@gmail.com"
+                                <label class="m-2" for="email">Email Address:</label>
+                                <input type="email" class="form-control" id="emailAdd" placeholder="name@domain.com"
                                     v-model="payload.emailAdd">
                             </div>
                             <br>
                             <div class="form-group">
-                                <!-- <label for="pwd">Password:</label> -->
-                                <input type="password" class="form-control" id="userPass" placeholder="Enter password"
+                                <label class="m-2" for="userPass">Password:</label>
+                                <input type="password" class="form-control" id="userPass" placeholder="Create a Password"
                                     v-model="payload.userPass">
                             </div>
                             <br>
                             <div class="form-group">
-                                <!-- <label for="pwd">Password:</label> -->
+                                <label class="m-2" for="userProfile">User Profile</label>
                                 <input type="picture" class="form-control" id="userProfile" placeholder="url"
                                     v-model="payload.userProfile">
                             </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox"> Remember me</label>
+                            <div class="checkbox m-4">
+                                <label> <input type="checkbox"> Remember me</label>
                             </div>
-                            <button type="submit" class="btn btn-outline-dark">Register</button>
+                            <button type="submit" class="btn">Register</button>
                         </form>
                     </div>
                     <div class="col">
-                        <img class="login" src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" alt="">
+                        <img class="img-fluid" src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -73,11 +73,11 @@
 export default {
     data() {
         return {
-            payload:{
+            payload: {
                 firstName: "",
                 lastName: "",
-                userAge:  "",
-                gender:"",
+                userAge: "",
+                gender: "",
                 userRole: "",
                 emailAdd: "",
                 userPass: "",
@@ -85,38 +85,72 @@ export default {
             }
         };
     },
-  
-  methods: {
-    register() {
-      this.$store.dispatch('addUser', this.payload)
+
+    methods: {
+        register() {
+            this.$store.dispatch('addUser', this.payload)
+        }
     }
-  }
-    }
+}
 </script>
 
 <style scoped>
-.all {
-    background-color: #E4C2A2 !important;
-}
-
 .container {
     min-height: 100vh;
     /* background-color: #E4C2A2; */
-    /* padding-top: 80px; */
+    padding-top: 30px;
+}
+
+.btn {
+    background-color: #92700f;
+    color: #ffffff;
+    border-radius: 0.7rem;
+    width: 9rem;
+    margin: 1rem;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: #92700f;
+    border: 1px solid #92700f;
+    /* box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7); */
+    /* transition: 0.2s;
+    transform: scale(1.05); */
 }
 
 .card {
-
+    color: #92700f;
     /* height: 600px; */
-    width: 745px;
-    border: solid rgb(0, 0, 0);
-    padding-left: 25px;
+    width: 90rem;
+    border: 2px solid #92700f;
+    /* padding-left: 25px; */
 }
 
-.login {
-    height: 500px;
+.form-group {
+    width: 30rem;
+}
+
+form {
+    align-items: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    /* align-items: center; */
+}
+input {
+    width: 100%;
+    border:1px solid #92700f;
+}
+
+.img-fluid {
+    height: 100%;
 }
 
 .col {
     text-align: center
-}</style>
+}
+</style>

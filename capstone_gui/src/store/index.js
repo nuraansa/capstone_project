@@ -1,9 +1,9 @@
 import { createStore } from "vuex";
 import axios from "axios";
 import sweet from "sweetalert";
-import {useCookies} from "vue3-cookies";
-const {cookies} = useCookies();
-import router from '@/router'
+import { useCookies } from "vue3-cookies";
+const { cookies } = useCookies();
+import router from "@/router";
 import authenticateuser from "@/services/authenticateuser";
 
 const dataUrl = "https://lily-jewels.onrender.com/";
@@ -246,7 +246,7 @@ export default createStore({
         );
         if (data) {
           context.commit("setMsg", data);
-          // location.reload()
+          location.reload();
         } else {
           context.commit("setMsg", "Oops! An error has occured");
         }
@@ -285,60 +285,60 @@ export default createStore({
       }
     },
 
-//login
-async login(context, payload) {
-  try {
-    const { msg, token, result } = (
-      await axios.post(`${dataUrl}user`, payload)
-    ).data;
-    if (result) {
-      context.commit("setUser", { result, msg });
-      cookies.set("LilyUser", { msg, token, result });
-      authenticateuser.applyToken(token);
-      sweet({
-        title: msg,
-        text: `Welcome back ${result?.firstName} ${result?.lastName}`,
-        icon: "success",
-        timer: 4000,
-      });
-      router.push({ name: "home" });
-    } else {
-      sweet({
-        title: "Error",
-        text: msg,
-        icon: "error",
-        timer: 4000,
-      });
-    }
-  } catch (e) {
-    context.commit("setmessage", "An error has occured");
-  }
-},
-//register
-async addUser(context, payload) {
-  try {
-    const { msg } = (await axios.post(`${dataUrl}register`, payload)).data;
-    if (msg) {
-      sweet({
-        title: "Registration",
-        text: msg,
-        icon: "success",
-        timer: 4000,
-      });
-      context.dispatch("fetchUsers");
-      router.push({ name: "login" });
-    } else {
-      sweet({
-        title: "Error",
-        text: msg,
-        icon: "error",
-        timer: 4000
-      });
-    }
-  } catch (e) {
-    context.commit("setmessage", "An error has occured");
-  }
-},
+    //login
+    async login(context, payload) {
+      try {
+        const { msg, token, result } = (
+          await axios.post(`${dataUrl}user`, payload)
+        ).data;
+        if (result) {
+          context.commit("setUser", { result, msg });
+          cookies.set("LilyUser", { msg, token, result });
+          authenticateuser.applyToken(token);
+          sweet({
+            title: msg,
+            text: `Welcome back ${result?.firstName} ${result?.lastName}`,
+            icon: "success",
+            timer: 4000,
+          });
+          router.push({ name: "home" });
+        } else {
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 4000,
+          });
+        }
+      } catch (e) {
+        context.commit("setmessage", "An error has occured");
+      }
+    },
+    //register
+    async addUser(context, payload) {
+      try {
+        const { msg } = (await axios.post(`${dataUrl}register`, payload)).data;
+        if (msg) {
+          sweet({
+            title: "Registration",
+            text: msg,
+            icon: "success",
+            timer: 4000,
+          });
+          context.dispatch("fetchUsers");
+          router.push({ name: "login" });
+        } else {
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 4000,
+          });
+        }
+      } catch (e) {
+        context.commit("setmessage", "An error has occured");
+      }
+    },
     // cart crud
 
     //show cart
