@@ -33,8 +33,8 @@
                                     style="font-size: 2.4rem; "></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><router-link to="/" class="dropdown-item">Register</router-link></li>
-                                <li><router-link to="/" class="dropdown-item">Login</router-link></li>
+                                <li><router-link to="/register" class="dropdown-item">Register</router-link></li>
+                                <li><router-link to="/login" class="dropdown-item">Login</router-link></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
