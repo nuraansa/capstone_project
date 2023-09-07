@@ -33,17 +33,17 @@
               </div>
               <form>
                 <div class="modal-body">
-                  <p class="title">First Name</p>
+                  <p class="title m-1">First Name</p>
                   <input type="text" id="title" v-model="editUser.firstName" />
-                  <p class="title">Last Name</p>
+                  <p class="title m-1">Last Name</p>
                   <input type="text" v-model="editUser.lastName" id="lastName" />
-                  <p class="title">Age</p>
+                  <p class="title m-1">Age</p>
                   <input type="text" id="details" v-model="editUser.userAge" />
-                  <p class="title">Gender</p>
+                  <p class="title m-1">Gender</p>
                   <input type="text" v-model="editUser.gender" id="gender" />
-                  <p class="title">Email Address</p>
+                  <p class="title m-1">Email Address</p>
                   <input type="text" id="email" v-model="editUser.emailAdd" />
-                  <p class="title">Profile Image</p>
+                  <p class="title m-1">Profile Image</p>
                   <input
                     type="text"
                     v-model="editUser.userProfile"
@@ -106,10 +106,9 @@
       updateUser(userID) {
         this.$store.dispatch("editUser", {
           userID: userID,
-          ...this.editUser,
-        });
-          // this.$store.dispatch("editUser", editUser)
-      },
+          ...this.editUser
+        })
+      }
     },
   };
   </script>
