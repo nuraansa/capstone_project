@@ -1,28 +1,28 @@
 <template>
-  <div class="container-fluid text-center">
+  <div class="login text-center">
     <div class="container d-flex justify-content-center align-items-center">
-      <div class="card">
-        <div class="row d-flex justify-content-center align-items-center">
+      <div class="card shadow-lg">
+        <div class="row">
           <div class="col">
-           <h1 class="display-3 ">Login</h1>
-            <form class="form-inline" action="/action_page.php" @submit.prevent="login">
+            <h1 class="display-3 m-4">Login</h1>
+            <form class="form" action="/action_page.php" @submit.prevent="login">
               <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" name="email" v-model="payload.emailAdd" placeholder="" />
+                <label for="email" class="m-3">Email Address:</label> <br>
+                <input id="input" type="email" name="email" v-model="payload.emailAdd" placeholder="name@domain.com" />
               </div>
               <br>
               <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" v-model="payload.userPass" name="password" />
-              </div>
+                <label for="pwd" class="m-3">Password:</label> <br>
+                <input id="input" type="password" v-model="payload.userPass" name="password" placeholder="Enter Your Password"/>
+              </div> <br>
               <div class="checkbox">
                 <label><input type="checkbox">Remember me</label>
-              </div>
+              </div><br>
               <button type="submit" class="btn">Log in</button>
             </form>
           </div>
           <div class="col">
-            <img class="login" src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" alt="">
+            <img src="#" alt="">
           </div>
         </div>
       </div>
@@ -55,34 +55,55 @@ export default {
 };
 </script>
 <style scoped>
-.btn{
+.btn {
   background-color: #92700f;
   color: #ffffff;
+   width: 7rem;
 }
-.btn:hover{
+
+.btn:hover {
   background-color: #ffffff;
   color: #92700f;
   border: 1px solid #92700f;
 }
+
 /* .container-fluid {
     background-color: #E4C2A2 !important;
 } */
 .container {
-  height: 100vh;
+  height: 80vh;
 }
 
 .card {
   width: 950px;
-  border: solid rgb(0, 0, 0);
-  padding-left: 25px;
+  height: 500px;
+  border: 1.5px solid #92700f;
+  /* padding-left: 45px; */
   color: #92700f;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+  background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #f5f4f1 0%, rgba(255, 255, 255, 0) 71.88%), #FFFFFF;
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 23px;
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  cursor: pointer;
 }
 
+.card:hover {
+  transform: scale(1.05);
+}
+
+#input{
+  border:1px solid #92700f;
+  border-radius: 0.3rem;
+  height: 2.2rem;
+  margin: 0.3rem;
+  width: 20rem;
+}
 .login {
-  height: 500px;
+  height: 750px;
 }
 
 .col {
-  text-align: center
+  align-items: center;
 }
 </style>

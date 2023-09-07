@@ -1,5 +1,6 @@
 <template>
   <section class="sinlgeView" id="singleView">
+    
     <!-- new -->
     <div class="container justify-content-center m-5 mx-auto">
       <div class="row" v-if="product">
