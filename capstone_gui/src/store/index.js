@@ -120,7 +120,7 @@ export default createStore({
     },
     async editProduct(context, payload) {
       try {
-        const response = await axios.patch(`${dataUrl}product/${payload.prodID}`, payload);
+        const response = await axios.patch(`${dataUrl}item/${payload.prodID}`, payload);
         if(response) {
           context.commit('editProduct', response)
           location.reload()
