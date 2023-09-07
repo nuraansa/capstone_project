@@ -93,7 +93,7 @@ class Users {
       // Fetch All Users
       fetchUsers(req, res) {
         const query = `
-              SELECT userID, firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile
+              SELECT *
               FROM Users;
               `;
         db.query(query, (err, results) => {

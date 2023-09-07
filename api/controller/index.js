@@ -37,7 +37,7 @@ routes.get("/items", (req, res) => {
   products.fetchProducts(req, res);
 });
 
-routes.get("/items/:id", (req, res) => {
+routes.get("/item/:id", (req, res) => {
   products.fetchProduct(req, res);
 });
 
@@ -49,14 +49,14 @@ routes.get("/featured", (req, res) => {
   products.featuredProducts(req, res);
 });
 
-routes.put("/product/:id", bodyParser.json(), (req, res) => {
+routes.put("/item/:id", bodyParser.json(), (req, res) => {
   products.updateProduct(req, res);
 });
-routes.patch("/product/:id", bodyParser.json(), (req, res) => {
+routes.patch("/item/:id", bodyParser.json(), (req, res) => {
   products.updateProduct(req, res);
 });
 
-routes.delete("/product/:id", (req, res) => {
+routes.delete("/item/:id", (req, res) => {
   products.deleteProduct(req, res);
 });
 
