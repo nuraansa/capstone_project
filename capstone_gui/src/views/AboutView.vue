@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1 class="display-1 p-1 glow me">About Us</h1>
-    <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 70rem;">
+    <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 100%;">
     <div class="container">
       <div class="row mx-auto m-5">
         <div class="col glow">
@@ -89,39 +89,41 @@
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              Accordion Item #1
+              LUXURY AND LEGACY
             </button>
           </h2>
           <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-              <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+            <div class="accordion-body">We only use quality materials and high-quality minimal packaging, and aspire to
+              create
+              a luxurious shopping experience through both our physical and online stores. We tell meaningful narratives
+              around our collections and aim to design pieces that can be worn for a life time.</div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              Accordion Item #2
+              INCLUSIVITY
             </button>
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-              <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being
-              filled with some actual content.</div>
+            <div class="accordion-body">Local job creation is of the utmost importance to us and has been a driving force
+              in our business since its inception. We speak up about things that are important to us in our community and
+              welcoming all races, genders, religions.
+            </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              Accordion Item #3
+              NATURE AND SUSTAINABILITY
             </button>
           </h2>
           <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-              <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
-              happening here in terms of content, but just filling up the space to make it look, at least at first glance,
-              a bit more representative of how this would look in a real-world application.</div>
+            <div class="accordion-body">Lily Jewels has pledged to donate 5% of all profits from every collection launched to
+              a local establishment or initiative that exists to create a better tomorrow for all.
+            </div>
           </div>
         </div>
       </div>
@@ -137,15 +139,16 @@
 }
 
 .me {
+  margin: 1rem;
   text-shadow: 1px 2px 3px #777c7b;
   white-space: nowrap;
   overflow: initial;
-  width: 100%;
+  width: 95%;
   animation: typing 1.4s steps(20), cursor 0.4s step-end infinite alternate;
 }
 
 @keyframes cursor {
-  80% {
+  50% {
     border-color: transparent;
   }
 }

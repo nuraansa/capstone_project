@@ -2,7 +2,7 @@
     <div>
         <div class="overlay glow m-3">˖°.✧ Welcome to Lily Jewels ✧.°˖</div>
         <!-- nav -->
-        <nav class="navbar navbar-expand-lg " style="background-color: #F7D0AB;">
+        <nav class="navbar navbar-expand-lg nav-underline" style="background-color: #F7D0AB;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/"><img id="logo" src="https://i.ibb.co/YbhMKWp/veclogo.png" alt="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -13,32 +13,36 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <router-link to="/" class="nav-link">Home</router-link>
+                            <router-link to="/" class="router-link-active nav-link">Home</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/about" class="nav-link">About</router-link>
+                            <router-link to="/about" class="router-link-active nav-link">About</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/products" class="nav-link">Products</router-link>
+                            <router-link to="/products" class="router-link-active nav-link">Products</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/contact" class="nav-link">Contact</router-link>
+                            <router-link to="/contact" class="router-link-active nav-link">Contact</router-link>
                         </li>
                     </ul>
                     <div class="nav">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="align-items: center;">
+                            <li class="nav-item"><router-link to="/register" class="nav-link">Register</router-link>
+                            </li>
+                            <li class="nav-item"><router-link to="/login" class="nav-link">Login</router-link></li>
+                        </ul>
                         <!-- dropdown -->
                         <li class="nav-item dropdown mx-auto">
                             <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false"><i class="bi bi-bag-heart"
-                                    style="font-size: 2.4rem; "></i>
+                                aria-expanded="false"><i class="bi bi-bag-heart" style="font-size: 2.4rem; "></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><router-link to="/register" class="dropdown-item">Register</router-link></li>
-                                <li><router-link to="/login" class="dropdown-item">Login</router-link></li>
+                                <li><router-link to="/cart" class="dropdown-item">✧My Cart✧</router-link></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><router-link to="/admin" class="dropdown-item">Admin</router-link></li>
+                                <li><router-link to="/admin" class="dropdown-item">My Profile</router-link></li>
                             </ul>
                         </li>
                     </div>
@@ -68,6 +72,7 @@ export default {
 .nav-link {
     color: #92700f;
     font-size: 1.4rem;
+    margin-right: 1rem;
 }
 
 .nav-link:hover {
@@ -75,15 +80,15 @@ export default {
     font-size: 1.5rem;
 }
 
-.dropdown button{
-    width: 10rem;
+.dropdown button {
+    width: 9rem;
 }
 
-.dropdown .bi-bag-heart{
-    padding-left: 5rem;
-}
+/* .dropdown .bi-bag-heart {
+    padding-left: 2rem;
+} */
 
-.dropdown-menu{
+.dropdown-menu {
     margin-right: 15rem !important;
 }
 
@@ -118,5 +123,4 @@ export default {
   align-items: center;
   flex-direction: column;
   padding-bottom: 6rem;
-} */
-</style>
+} */</style>

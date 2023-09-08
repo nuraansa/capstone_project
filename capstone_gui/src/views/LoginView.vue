@@ -13,7 +13,8 @@
               <br>
               <div class="form-group">
                 <label for="pwd" class="m-3">Password:</label> <br>
-                <input id="input" type="password" v-model="payload.userPass" name="password" placeholder="Enter Your Password"/>
+                <input id="input" type="password" v-model="payload.userPass" name="password"
+                  placeholder="Enter Your Password" />
               </div> <br>
               <div class="checkbox">
                 <label><input type="checkbox">Remember me</label>
@@ -21,8 +22,8 @@
               <button type="submit" class="btn">Log in</button>
             </form>
           </div>
-          <div class="col">
-            <img src="#" alt="">
+          <div class="col" style="height: 100vh;">
+            <img class="img-fluid" src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" alt="">
           </div>
         </div>
       </div>
@@ -58,7 +59,7 @@ export default {
 .btn {
   background-color: #92700f;
   color: #ffffff;
-   width: 7rem;
+  width: 7rem;
 }
 
 .btn:hover {
@@ -76,7 +77,7 @@ export default {
 
 .card {
   width: 950px;
-  height: 500px;
+  height: 30rem;
   border: 1.5px solid #92700f;
   /* padding-left: 45px; */
   color: #92700f;
@@ -92,13 +93,14 @@ export default {
   transform: scale(1.05);
 }
 
-#input{
-  border:1px solid #92700f;
+#input {
+  border: 1px solid #92700f;
   border-radius: 0.3rem;
   height: 2.2rem;
-  margin: 0.3rem;
+  margin: 0.3 rem;
   width: 20rem;
 }
+
 .login {
   height: 750px;
 }

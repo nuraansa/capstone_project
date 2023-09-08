@@ -59,15 +59,21 @@
                             <button type="submit" class="btn">Register</button>
                         </form>
                     </div>
-                    <div class="col">
-                        <img class="img-fluid" src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" alt="">
+                    <div class="col vid">
+                        <iframe src="https://player.vimeo.com/video/862371323?h=1f6b738b90" width="640" height="564"
+                            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
+        <!--video  -->
+        <!-- <div class="col vid">
+            <video autoplay loop muted playsinline>
+                <source src="https://player.vimeo.com/video/862371323?h=1f6b738b90" type="video/mp4">
+            </video>
+        </div> -->
     </div>
 </template>
-
 <script>
 
 export default {
@@ -141,9 +147,10 @@ form {
     align-content: center;
     /* align-items: center; */
 }
+
 input {
     width: 100%;
-    border:1px solid #92700f;
+    border: 1px solid #92700f;
 }
 
 .img-fluid {
@@ -152,5 +159,16 @@ input {
 
 .col {
     text-align: center
+}
+
+.row {
+    display: flex;
+}
+
+.vid {
+    border: 2px solid red;
+    width: max-content;
+    /* height: 100vh; */
+    /* background: fixed; */
 }
 </style>

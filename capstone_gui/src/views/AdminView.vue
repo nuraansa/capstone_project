@@ -9,7 +9,8 @@
         Product Interface
       </h1>
       <div class="container-fluid">
-        <button class="btn2 float-start" id="sort">Sort By</button>
+        <button class="btn2 float-start" @click="sortByPrice">Sort By Price</button>
+        <button class="btn2 float-start" @click="sortByName">Sort By Name</button>
         <addButton />
       </div>
       <table class="table table-responsive table-bordered border-black table-light table-hover" v-if="products">
@@ -19,7 +20,8 @@
             <th scope="col d-none d-sm-block">Image</th>
             <th scope="col">Title</th>
             <th scope="col d-none d-sm-block">Description</th>
-            <th scope="col">Amount</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -38,6 +40,9 @@
             </td>
             <td>
               <div class="tableRows d-none d-sm-block">{{ product.prodDesc }}</div>
+            </td>
+            <td>
+              <div class="tableRows">{{ product.quantity }}</div>
             </td>
             <td>
               <div class="tableRows">R{{ product.price }}</div>
@@ -61,7 +66,7 @@
           User Interface
         </h1>
         <div class="container-fluid">
-          <button class="btn2 float-start" id="sort">Sort By</button>
+          <button class="btn2 float-start" @click="sortUserByName">Sort By Name</button>
           <userAdd />
         </div>
         <table class="table table-responsive table-bordered border-black table-secondary table-hover" v-if="users">
@@ -125,6 +130,11 @@ export default {
   components: {
     addButton, editButton, userAdd, userEdit, spinner
   },
+  data() {
+    return {
+      sortBy: null // Add sortBy property to track sorting
+    };
+  },
   computed: {
     products() {
       return this.$store.state.products;
@@ -137,6 +147,26 @@ export default {
     },
     user() {
       return this.$store.state.user;
+    },
+    productsSorted() {
+      // Computes sorted products based on sortBy
+      if (this.sortBy === "price") {
+        return this.products.slice().sort((a, b) => a.price - b.price);
+      } else if (this.sortBy === "name") {
+        return this.products.slice().sort((a, b) => a.prodName.localeCompare(b.prodName));
+      } else {
+        // Default sorting
+        return this.products;
+      }
+    },
+    usersSorted() {
+      // Compute sorted users based on sortBy
+      if (this.sortBy === "userName") {
+        return this.users.slice().sort((a, b) => a.firstName.localeCompare(b.firstName));
+      } else {
+        // Default sorting
+        return this.users;
+      }
     },
   },
   mounted() {
@@ -151,15 +181,25 @@ export default {
     },
     async deleteUser(userID) {
       this.$store.dispatch('deleteUser', userID)
-    }
+    },
+    sortByPrice() {
+      this.sortBy = "price";
+    },
+    sortByName() {
+      this.sortBy = "name";
+    },
+    sortUserByName() {
+      this.sortBy = "userName";
+    },
   }
 };
 </script>
   
 <style scoped>
-h1{
+h1 {
   color: #92700f;
 }
+
 .btn1 {
   background-color: #92700f;
   color: white;
@@ -177,10 +217,11 @@ h1{
 .btn2 {
   background-color: #92700f;
   color: white;
-  width: 9rem;
+  width: 14rem;
   padding: 0.3rem;
   border-radius: 10px;
   border: 1px solid #92700f;
+  margin: 1rem;
 }
 
 .btn2:hover {
