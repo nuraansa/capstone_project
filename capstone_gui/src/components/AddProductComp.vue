@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="d-flex justify-content-center mb-2">
+    <div class="d-flex justify-content-end mb-2">
       <button type="button" class="btn2 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add Product
       </button>
@@ -79,16 +79,18 @@ export default {
 }
 
 .btn1:hover {
-  background-color: #f7f7f788;
+  background-color: #92700f;
+  color: white;
 }
 
 .btn2 {
   background-color: #92700f;
   color: white;
-  width: 9rem;
+  width: 14rem;
   padding: 0.3rem;
   border-radius: 10px;
   border: 1px solid #92700f;
+  margin: 1rem;
 }
 
 .btn2:hover {

@@ -1,9 +1,20 @@
 <template>
   <div class="product m-5">
     <h1 class="display-3 p-3 head" style="color: #92700f;">Our Products</h1>
+    <!-- search -->
     <div class="container-fluid">
-      <button class="btn">Sort</button>
-    </div>
+      <div class="row">
+        <div class="col"><button class="btn" @click="toggleSortOrder">Sort Alphabetically</button>
+          <button class="btn" @click="toggleSortOrder">Sort by Price</button>
+        </div>
+        <div class="col">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search products..." v-model="searchQuery" />
+            <button class="btn btn-primary" @click="searchProducts">Search</button>
+          </div>
+        </div>
+      </div>
+    </div> <hr>
     <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-3 mx-sm-5 d-flex justify-content-center"
       v-if="products">
       <div class="col mt-5" v-for="product in products" :key="product.prodID">
@@ -15,6 +26,7 @@
             <div class="card-footer">
               R {{ product.price }}
             </div>
+            <hr>
             <div class="container">
               <router-link :to="{
                 name: 'singleView',
@@ -37,17 +49,55 @@ export default {
   components: {
     spinner
   },
+  data() {
+    return {
+      searchQuery: '', // Initialize the search query as an empty string
+    };
+  },
   computed: {
     products() {
       return this.$store.state.products;
     },
-
   },
   mounted() {
     this.$store.dispatch("fetchProducts");
   },
   methods: {
-  }
+    toggleSortOrder() {
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+      this.sortProducts();
+    },
+    sortProducts() {
+      if (this.sortOrder === 'asc') {
+        this.products.sort((a, b) => a.prodName.localeCompare(b.prodName));
+      } else {
+        this.products.sort((a, b) => b.prodName.localeCompare(a.prodName));
+      }
+    },
+    sortProducts() {
+      if (this.sortOrder === 'asc') {
+        this.products.sort((a, b) => a.price - b.price);
+      } else {
+        this.products.sort((a, b) => b.price - a.price);
+      }
+    },
+    searchProducts() {
+      const searchQuery = this.searchQuery.toLowerCase().trim();
+      if (!searchQuery) {
+        // If the search query is empty, reset the filtered products to all products
+        this.filteredProducts = this.products;
+        return;
+      }
+      this.filteredProducts = this.products.filter((product) =>
+        product.prodName.toLowerCase().includes(searchQuery)
+      );
+    },
+  },
+  data() {
+    return {
+      sortOrder: 'asc',
+    };
+  },
 };
 </script>
   
@@ -72,8 +122,8 @@ export default {
 }
 
 .card-text {
-  height: 50px;
   overflow: auto;
+  margin: 0;
 }
 
 .btn {
@@ -82,7 +132,7 @@ export default {
   border-radius: 1rem;
   padding: 0.3rem;
   border: 0;
-  width: 7rem;
+  width: 14rem;
 }
 
 .btn:hover {

@@ -213,7 +213,7 @@ export default createStore({
     // User CRUD
     async submitUser(context, payload) {
       try {
-        const response = await axios.post(`${dataUrl}user`, payload);
+        const response = await axios.post(`${dataUrl}register`, payload);
         if (response) {
           context.commit("setUser", response.data);
           location.reload();
@@ -386,6 +386,19 @@ export default createStore({
     clearCart({ commit }) {
       commit("clearCart");
     },
+  },
+  // sort
+  sortProducts(state, sortBy) {
+    if (sortBy === "price") {
+      state.products.sort((a, b) => a.price - b.price);
+    } else if (sortBy === "name") {
+      state.products.sort((a, b) => a.prodName.localeCompare(b.prodName));
+    }
+  },
+  sortUsers(state, sortBy) {
+    if (sortBy === "userName") {
+      state.users.sort((a, b) => a.firstName.localeCompare(b.firstName));
+    }
   },
   modules: {},
 });
