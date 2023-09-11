@@ -1,9 +1,10 @@
 <template>
-    <div class="footer card-footer p-3"> <hr>
+    <div class="footer card-footer p-3">
+        <hr>
         <div class="container text-center">
-           <div class="row">
+            <div class="row">
                 <div class="col"> <img src="https://i.ibb.co/YbhMKWp/veclogo.png" alt="" style="width: 7rem;">
-            
+
                     <ul class="d-flex" style="align-items: center; flex-wrap: wrap;">
                         <li class="p-1 p-sm-3"><router-link class="rl" to="/">Home</router-link></li> |
                         <li class="p-1 p-sm-3"><router-link class="rl" to="/about">About</router-link></li> |
@@ -44,10 +45,12 @@ export default {
     height: 6rem;
     bottom: 0;
 }
-ul{
+
+ul {
     justify-content: center;
     align-items: center;
 }
+
 li {
     list-style: none;
 }
@@ -61,7 +64,7 @@ a {
 .social {
     font-size: 30px;
     margin-right: 20px;
-    color: #000000;
+    color: #92700f;
 }
 
 .social:hover {
@@ -89,13 +92,14 @@ a {
 }
 
 @media (max-width: 599px) {
+
     /* .so {
         margin: 1rem;
     } */
     /* a{
         font-size: 1rem;
     } */
-    .tc{
+    .tc {
         flex-wrap: wrap;
     }
 }
@@ -104,5 +108,4 @@ a {
     .ul {
         display: flexbox;
     }
-}
-</style>
+}</style>

@@ -25,9 +25,9 @@ export default createStore({
     cart: null,
   },
   getters: {
-    cartTotalPrice(state) {
-      return state.cart.reduce((total, product) => total + product.price, 0);
-    },
+    // cartTotalPrice(state) {
+    //   return state.cart.reduce((total, product) => total + product.price, 0);
+    // },
   },
   mutations: {
     setUsers(state, users) {
@@ -240,13 +240,13 @@ export default createStore({
     },
     async editUser(context, payload) {
       try {
-        const data = await axios.patch(
+        console.log(payload);
+        const { data } = await axios.patch(
           `${dataUrl}user/${payload.userID}`,
           payload
         );
         if (data) {
           context.commit("setMsg", data);
-          location.reload();
         } else {
           context.commit("setMsg", "Oops! An error has occured");
         }
@@ -255,7 +255,7 @@ export default createStore({
       }
     },
 
-    // Refister & Login
+    // Register & Login
     async register(context, payload) {
       console.log("Reached");
       try {
@@ -339,19 +339,18 @@ export default createStore({
         context.commit("setmessage", "An error has occured");
       }
     },
-    // cart crud
 
+    // cart crud
     //show cart
     async getCart(context, id) {
       const res = await axios.get(
-        `https://lily-jewels.onrender.com/user/${id}/carts`
+        `https://lily-jewels.onrender.com/user/${id}/cart`
       );
       context.commit("setCart", res.data);
       console.log(id);
     },
 
     //add to cart
-
     async addToCart({ commit }, { userID, prodID }) {
       try {
         const response = await axios.post(
@@ -371,7 +370,7 @@ export default createStore({
       }
     },
 
-    //clear from cart
+    //remove from cart
     async removeFromCart({ commit }, { userID, cartID }) {
       try {
         await axios.delete(

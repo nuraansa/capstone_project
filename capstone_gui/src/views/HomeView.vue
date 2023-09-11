@@ -34,33 +34,33 @@
     <div class="container mx-auto">
       <h1 class="display-3 p-5 glow">Featured</h1>
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
+        <div class="col" id="featured">
           <div class="card h-100 shadow-lg">
             <img src="https://i.ibb.co/d7FfPR5/IMG-2505-A.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
+              <h5 class="card-title"></h5>
+              <p class="card-text">Elevate your style with our jewelry collection, blending timeless
+                beauty and sophistication.</p>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col" id="featured">
           <div class="card h-100 shadow-lg">
             <img src="https://i.ibb.co/0Ff15Pq/IMG-2503-A.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
+              <h5 class="card-title"></h5>
+              <p class="card-text">Radiate luxury and elegance with our exquisite gold jewelry pieces, meticulously
+                crafted to capture the essence of opulence..</p>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col" id="featured">
           <div class="card h-100 shadow-lg">
             <img src="https://i.ibb.co/VDQmDZr/IMG-2506-A.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
+              <h5 class="card-title"></h5>
+              <p class="card-text">Transform your everyday look into a statement of glamour and prestige with our
+                handpicked selection of gold jewelry that stands the test of time.</p>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@
     <div class="card mb-3 mx-auto" style="max-width: 64rem; border: none;">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="https://i.ibb.co/n3rdsg7/IMG-2504.jpg" class="img-fluid rounded-start" alt="...">
+          <img src="https://i.ibb.co/n3rdsg7/IMG-2504.jpg" class="img-fluid rounded-start" alt="..." id="featured">
         </div>
         <div class="col-md-8 d-flex" style="align-items: center;">
           <div class="card-body">
@@ -115,6 +115,15 @@
   animation: glow 1s ease-in-out infinite alternate;
 }
 
+#featured {
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  cursor: pointer;
+}
+
+#featured:hover {
+  transform: scale(1.05);
+}
+
 .sn {
   color: #92700f;
   text-align: center;
@@ -134,4 +143,5 @@
 
 p {
   font-size: 1.2rem;
-}</style>
+}
+</style>

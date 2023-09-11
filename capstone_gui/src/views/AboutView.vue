@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1 class="display-1 p-1 glow me">About Us</h1>
-    <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 100%;">
+    <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 70%;">
     <div class="container">
       <div class="row mx-auto m-5">
         <div class="col glow">
@@ -121,7 +121,8 @@
             </button>
           </h2>
           <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Lily Jewels has pledged to donate 5% of all profits from every collection launched to
+            <div class="accordion-body">Lily Jewels has pledged to donate 5% of all profits from every collection launched
+              to
               a local establishment or initiative that exists to create a better tomorrow for all.
             </div>
           </div>
@@ -139,7 +140,7 @@
 }
 
 .me {
-  margin: 1rem;
+  margin: 2rem;
   text-shadow: 1px 2px 3px #777c7b;
   white-space: nowrap;
   overflow: initial;
@@ -210,4 +211,5 @@ img {
     float:left;
     margin:0;
 }
-} */</style>
+} */
+</style>

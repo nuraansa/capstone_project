@@ -9,11 +9,11 @@
         Product Interface
       </h1>
       <div class="container-fluid">
-        <button class="btn2 float-start" @click="sortByPrice">Sort By Price</button>
-        <button class="btn2 float-start" @click="sortByName">Sort By Name</button>
+        <!-- <button class="btn2 float-start" @click="sortByPrice">Sort By Price</button>
+        <button class="btn2 float-start" @click="sortByName">Sort By Name</button> -->
         <addButton />
       </div>
-      <table class="table table-responsive table-bordered border-black table-light table-hover" v-if="products">
+      <table class="table table-responsive table-bordered border-black table-hover" v-if="products">
         <thead>
           <tr>
             <th scope="col">ID#</th>
@@ -39,7 +39,7 @@
               <div class="tableRows">{{ product.prodName }}</div>
             </td>
             <td>
-              <div class="tableRows d-none d-sm-block">{{ product.prodDesc }}</div>
+              <div class="tableRows">{{ product.prodDesc }}</div>
             </td>
             <td>
               <div class="tableRows">{{ product.quantity }}</div>
@@ -69,13 +69,14 @@
           <button class="btn2 float-start" @click="sortUserByName">Sort By Name</button>
           <userAdd />
         </div>
-        <table class="table table-responsive table-bordered border-black table-secondary table-hover" v-if="users">
+        <table class="table table-responsive table-bordered border-black table-hover" v-if="users">
           <thead>
             <tr>
               <th scope="col">ID#</th>
               <th scope="col">Image</th>
               <th scope="col">User Name</th>
               <th scope="col">Gender</th>
+              <th scope="col">Age</th>
               <th scope="col">User Role</th>
               <th scope="col">Email Adress</th>
               <th scope="col">Actions</th>
@@ -88,7 +89,7 @@
               </th>
               <td>
                 <div class="tableRows">
-                  <img class="img-fluid" :src="user.userProfile" :alt="user.firstName" loading="lazy" />
+                  <img class="img-fluid d-none d-sm-block" :src="user.userProfile" :alt="user.firstName" loading="lazy" />
                 </div>
               </td>
               <td>
@@ -98,6 +99,9 @@
                 <div class="tableRows">{{ user.gender }}</div>
               </td>
               <td>
+                <div class="tableRows">{{ user.userAge }}</div>
+              </td>
+              <td>
                 <div class="tableRows">{{ user.userRole }}</div>
               </td>
               <td>
@@ -105,7 +109,11 @@
               </td>
               <td>
                 <div class="tableRows">
+                  <!-- View User Btn -->
+                  <button class="btn1">View</button>
+                  <!-- Edit User Btn -->
                   <userEdit :user="user" />
+                  <!-- Delete User Btn -->
                   <button @click.prevent="deleteUser(user.userID)" class="btn1" id="deleteBtn">Delete</button>
                 </div>
               </td>
@@ -132,7 +140,7 @@ export default {
   },
   data() {
     return {
-      sortBy: null // Add sortBy property to track sorting
+      sortBy: null
     };
   },
   computed: {
@@ -241,7 +249,9 @@ img {
   height: 100%;
   text-align: center;
 }
-
+tbody:hover{
+  background-color: antiquewhite;
+}
 th {
   text-align: center;
 }
@@ -249,6 +259,5 @@ th {
 td {
   height: 150px;
 }
-
 @media screen and (max-width: 808px) {}
 </style>

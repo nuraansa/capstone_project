@@ -13,7 +13,7 @@
                             </div>
                             <br>
                             <div class="form-group">
-                                <label class="m-2" for="lastName"> SURNAME</label>
+                                <label class="m-2" for="lastName">Last Name</label>
                                 <input type="surname" class="form-control" id="lastName" placeholder="Your Surname"
                                     v-model="payload.lastName">
                             </div>
@@ -59,9 +59,8 @@
                             <button type="submit" class="btn">Register</button>
                         </form>
                     </div>
-                    <div class="col vid">
-                        <iframe src="https://player.vimeo.com/video/862371323?h=1f6b738b90" width="640" height="564"
-                            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    <div class="col">
+                        <img class="img-fluid" src="../assets/video/video_lj.gif" alt="">
                     </div>
                 </div>
             </div>
