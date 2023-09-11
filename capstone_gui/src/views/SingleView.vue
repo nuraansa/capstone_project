@@ -1,7 +1,5 @@
 <template>
   <section class="sinlgeView" id="singleView">
-    
-    <!-- new -->
     <div class="container justify-content-center m-5 mx-auto">
       <div class="row" v-if="product">
         <div class="col">
@@ -14,7 +12,10 @@
               </div>
               <div class="col-md-6">
                 <div class="card-body" style="font-size: 1.5rem; color: #92700f;">
-                  <h5 class="card-title display-4">{{ product.prodName }}</h5> <br><br>
+                  <h5 class="card-title display-4">{{ product.prodName }}</h5> <br>
+                  <div class="cardText">
+                    <p class="card-text">{{ product.Category }}</p>
+                  </div><br>
                   <div class="cardText">
                     <p class="card-text">{{ product.prodDesc }}</p>
                   </div><br>
@@ -23,7 +24,7 @@
                     <span class="boldP display-5"> R{{ product.price }} </span>
                   </p> <br>
                   <div class="addCart">
-                    <router-link to="/products"><button class="btn m-1">
+                    <router-link to="/cart"><button class="btn m-1">
                         Add to Cart
                       </button></router-link>
                     <router-link to="/products"><button class="btn m-1">
@@ -79,6 +80,7 @@ body {
   transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 0.67);
   cursor: pointer;
 }
+
 .image:hover {
   transform: scale(1.05);
 }
@@ -97,6 +99,8 @@ body {
   color: #92700f;
   border: 1px solid #92700f;
 }
-.card-title{
+
+.card-title {
   text-shadow: 3px 2px 3px rgb(118, 112, 112);
-}</style>
+}
+</style>

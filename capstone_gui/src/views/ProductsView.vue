@@ -1,20 +1,22 @@
 <template>
   <div class="product m-5">
     <h1 class="display-3 p-3 head" style="color: #92700f;">Our Products</h1>
+    <hr>
     <!-- search -->
-    <div class="container-fluid">
+    <div class="container mx-auto">
       <div class="row">
-        <div class="col"><button class="btn" @click="toggleSortOrder">Sort Alphabetically</button>
-          <button class="btn" @click="toggleSortOrder">Sort by Price</button>
+        <div class="col"><button class="btn m-2" @click="toggleSortOrder">Sort Alphabetically</button>
+          <button class="btn m-2" @click="toggleSortOrder">Sort by Price</button>
         </div>
         <div class="col">
-          <div class="input-group mb-3">
+          <div class="input-group mb-2">
             <input type="text" class="form-control" placeholder="Search products..." v-model="searchQuery" />
-            <button class="btn btn-primary" @click="searchProducts">Search</button>
+            <button class="btn m-2" @click="searchProducts">Search</button>
           </div>
         </div>
       </div>
-    </div> <hr>
+    </div>
+    <hr>
     <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-3 mx-sm-5 d-flex justify-content-center"
       v-if="products">
       <div class="col mt-5" v-for="product in products" :key="product.prodID">
@@ -49,11 +51,6 @@ export default {
   components: {
     spinner
   },
-  data() {
-    return {
-      searchQuery: '', // Initialize the search query as an empty string
-    };
-  },
   computed: {
     products() {
       return this.$store.state.products;
@@ -80,17 +77,6 @@ export default {
       } else {
         this.products.sort((a, b) => b.price - a.price);
       }
-    },
-    searchProducts() {
-      const searchQuery = this.searchQuery.toLowerCase().trim();
-      if (!searchQuery) {
-        // If the search query is empty, reset the filtered products to all products
-        this.filteredProducts = this.products;
-        return;
-      }
-      this.filteredProducts = this.products.filter((product) =>
-        product.prodName.toLowerCase().includes(searchQuery)
-      );
     },
   },
   data() {
