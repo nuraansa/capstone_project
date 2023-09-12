@@ -42,7 +42,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li><router-link to="/admin" class="dropdown-item" id="dd">Admin</router-link></li>
-                            <li><router-link to="/admin" class="dropdown-item" id="dd">Profile</router-link></li>
+                            <li><router-link to="/user" class="dropdown-item" id="dd">Profile</router-link></li>
                         </ul>
                     </li>
                 </div>

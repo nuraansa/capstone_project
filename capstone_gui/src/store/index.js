@@ -241,13 +241,15 @@ export default createStore({
     async editUser(context, payload) {
       try {
         console.log(payload);
-        const { data } = await axios.patch(
+        const { msg } = await axios.patch(
           `${dataUrl}user/${payload.userID}`,
           payload
-        );
-        if (data) {
-          context.commit("setMsg", data);
+        ).data;
+        if (msg) {
+          context.commit("setMsg", msg);
+          // location.reload();
         } else {
+          console.error(e);
           context.commit("setMsg", "Oops! An error has occured");
         }
       } catch (e) {
@@ -369,7 +371,6 @@ export default createStore({
         console.error(error);
       }
     },
-
     //remove from cart
     async removeFromCart({ commit }, { userID, cartID }) {
       try {
@@ -380,6 +381,14 @@ export default createStore({
       } catch (error) {
         console.error(error);
       }
+    },
+    //show cart
+    async getCart(context, id) {
+      const res = await axios.get(
+        `https://lily-jewels.onrender.com/user/${id}/carts`
+      );
+      context.commit("setCart", res.data);
+      console.log(res.data);
     },
     // checkout
     clearCart({ commit }) {

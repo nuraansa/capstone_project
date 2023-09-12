@@ -1,47 +1,55 @@
 <template>
-  <div class="product m-5">
+  <div class="product m-3">
     <h1 class="display-3 p-3 head" style="color: #92700f;">Our Products</h1>
     <hr>
     <!-- search -->
     <div class="container mx-auto">
-      <div class="row">
-        <div class="col"><button class="btn m-2" @click="toggleSortOrder">Sort Alphabetically</button>
-          <button class="btn m-2" @click="toggleSortOrder">Sort by Price</button>
+      <div class="row d-flex" style="align-items: center;">
+        <div class="col">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              SORT
+            </button>
+            <ul class="dropdown-menu">
+              <li> <button class="btn m-2" @click="toggleSortOrder">Sort A-Z</button></li>
+              <li> <button class="btn m-2" @click="toggleSortOrder">Sort by Price</button></li>
+            </ul>
+          </div>
         </div>
         <div class="col">
-          <div class="input-group mb-2">
+          <div class="input-group">
             <input type="text" class="form-control" placeholder="Search products..." v-model="searchQuery" />
-            <button class="btn m-2" @click="searchProducts">Search</button>
+            <button class="btn" @click="searchProducts">Search</button>
           </div>
         </div>
       </div>
     </div>
-    <hr>
-    <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-3 mx-sm-5 d-flex justify-content-center"
-      v-if="products">
-      <div class="col mt-5" v-for="product in products" :key="product.prodID">
-        <div class="card">
-          <img :src="product.prodUrl" class="card-img-top" :alt="product.prodName">
-          <div class="card-body">
-            <h5 class="card-title">{{ product.prodName }}</h5>
-            <p class="card-text">{{ product.prodDesc }}</p>
-            <div class="card-footer">
-              R {{ product.price }}
-            </div>
-            <hr>
-            <div class="container">
-              <router-link :to="{
-                name: 'singleView',
-                params: { prodID: product.prodID }
-              }"><button class="btn mt-2">View Product</button></router-link>
-            </div>
+  </div>
+  <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-3 mx-sm-5 d-flex justify-content-center"
+    v-if="products">
+    <div class="col mt-5" v-for="product in products" :key="product.prodID">
+      <div class="card">
+        <img :src="product.prodUrl" class="card-img-top" :alt="product.prodName">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.prodName }}</h5>
+          <p class="card-text">{{ product.prodDesc }}</p>
+          <div class="card-footer">
+            R {{ product.price }}
           </div>
+          <hr>
+          <div class="container">
+            <router-link :to="{
+              name: 'singleView',
+              params: { prodID: product.prodID }
+            }"><button class="btn mt-2">View Product</button></router-link>
+          </div> <br>
+          <router-link to="/cart" class="btn">Add to Cart</router-link>
         </div>
       </div>
     </div>
-    <div v-else class="row">
-      <spinner />
-    </div>
+  </div>
+  <div v-else class="row">
+    <spinner />
   </div>
 </template>
   
@@ -78,10 +86,23 @@ export default {
         this.products.sort((a, b) => b.price - a.price);
       }
     },
+    searchProducts() {
+      if (this.searchQuery.trim() === '') {
+        // If the search query is empty, reset the filtered products
+        this.filteredProducts = [];
+      } else {
+        // Filter products based on the searchQuery and update filteredProducts
+        this.filteredProducts = this.products.filter((product) =>
+          product.prodName.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
+      }
+    },
   },
   data() {
     return {
       sortOrder: 'asc',
+      searchQuery: '',
+      filteredProducts: [],
     };
   },
 };
@@ -118,7 +139,7 @@ export default {
   border-radius: 1rem;
   padding: 0.3rem;
   border: 0;
-  width: 14rem;
+  width: 13rem;
 }
 
 .btn:hover {

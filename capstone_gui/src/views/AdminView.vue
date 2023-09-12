@@ -66,7 +66,7 @@
           User Interface
         </h1>
         <div class="container-fluid">
-          <button class="btn2 float-start" @click="sortUserByName">Sort By Name</button>
+          <!-- <button class="btn2 float-start" @click="sortUserByName">Sort By Name</button> -->
           <userAdd />
         </div>
         <table class="table table-responsive table-bordered border-black table-hover" v-if="users">
@@ -110,9 +110,9 @@
               <td>
                 <div class="tableRows">
                   <!-- View User Btn -->
-                  <button class="btn1">View</button>
+                  <!-- <router-link to="/user" class="btn1">View</router-link> -->
                   <!-- Edit User Btn -->
-                  <userEdit :user="user" />
+                  <editUser :user="user" />
                   <!-- Delete User Btn -->
                   <button @click.prevent="deleteUser(user.userID)" class="btn1" id="deleteBtn">Delete</button>
                 </div>
@@ -132,11 +132,11 @@
 import addButton from "@/components/AddProductComp.vue"
 import editButton from "@/components/EditProductComp.vue"
 import userAdd from "@/components/AddUserComp.vue"
-import userEdit from "@/components/EditUserComp.vue"
+import editUser from "@/components/EditUserComp.vue"
 import spinner from "@/components/SpinnerComp.vue"
 export default {
   components: {
-    addButton, editButton, userAdd, userEdit, spinner
+    addButton, editButton, userAdd, editUser, spinner
   },
   data() {
     return {
@@ -157,7 +157,6 @@ export default {
       return this.$store.state.user;
     },
     productsSorted() {
-      // Computes sorted products based on sortBy
       if (this.sortBy === "price") {
         return this.products.slice().sort((a, b) => a.price - b.price);
       } else if (this.sortBy === "name") {
@@ -249,9 +248,11 @@ img {
   height: 100%;
   text-align: center;
 }
-tbody:hover{
+
+tbody:hover {
   background-color: antiquewhite;
 }
+
 th {
   text-align: center;
 }
@@ -259,5 +260,5 @@ th {
 td {
   height: 150px;
 }
-@media screen and (max-width: 808px) {}
-</style>
+
+@media screen and (max-width: 808px) {}</style>
