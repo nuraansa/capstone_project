@@ -21,7 +21,7 @@
                   </div><br>
                   <hr> <br>
                   <p class="amount text-center">
-                    <span class="boldP display-5"> R{{ product.price }} </span>
+                    <span class="boldP display-5">Price: R{{ product.price }} </span>
                   </p> <br>
                   <div class="addCart">
                     <router-link to="/cart"><button class="btn m-1">

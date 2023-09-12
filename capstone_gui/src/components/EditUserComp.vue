@@ -1,13 +1,13 @@
 <template>
   <div>
     <button type="button" class="btn2 m-3" @click="editUserModal(user.userID)" data-bs-toggle="modal"
-      :data-bs-target="'#exampleModal' + user.userID">
+      :data-bs-target="'#uexampleModal' + user.userID">
       Edit
     </button>
     <!-- Modal -->
     <div class="container">
-      <div class="modal fade" :id="'exampleModal' + user.userID" tabindex="-1"
-        :aria-labelledby="'exampleModalLabel' + user.userID" aria-hidden="true">
+      <div class="modal fade" :id="'uexampleModal' + user.userID" tabindex="-1"
+        :aria-labelledby="'uexampleModalLabel' + user.userID" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content" style="background-color: #F7D0AB; color: #92700f;">
             <div class="modal-header text-center">
@@ -39,7 +39,7 @@
                 <button type="button" class="btn1" data-bs-dismiss="modal">
                   Close
                 </button>
-                <button @click.prevent="updateUser(userID)" type="submit" class="btn1" id="addUser">
+                <button @click.prevent="updateUser()" type="submit" class="btn1" id="addUser">
                   Save changes
                 </button>
                 <button type="reset" class="btn1">Clear</button>
@@ -77,15 +77,12 @@ export default {
   methods: {
     editUserModal(userID) {
       this.editUserID = userID;
-      this.editUser = {
-        ...this.$store.state.users.find((user) => user.userID === userID),
-      };
+      // this.editUsers = {
+      //   ...this.$store.state.users.find((user) => user.userID === userID),
+      // };
     },
-    updateUser(userID) {
-      this.$store.dispatch("editUser", {
-        userID: userID,
-        ...this.editUsers
-      })
+    updateUser() {
+      this.$store.dispatch("editUser", this.editUsers)
     }
   },
 };
