@@ -1,7 +1,60 @@
 <template>
   <div class="contact p-4">
+    <div class="container mx-auto">
+      <div class="card inf1 mx-auto" style="background-color: #F7D0AB;">
+        <div class="row no-gutters">
+          <!-- Left Column (Image) -->
+          <div class="col-md-6">
+            <img src="https://i.ibb.co/0JxYxft/lilyjewelss.webp" class="card-img" alt="Image">
+          </div>
+          <!-- Right Column (Text) -->
+          <div class="col-md-6">
+            <div class="card-body">
+              <h2 class="card-title cu display-4">Reach out to us!</h2>
+              <hr>
+              <p class="card-text">
+                <i class="bi bi-telephone inf2"> +27 12 345 6789</i>
+              </p>
+              <p class="card-text"><i class="bi bi-envelope inf2"> lilyjewels@gmail.com</i></p>
+              <p class="card-text"><i class="bi bi-house inf2"> Cape Town, South Africa</i></p>
+              <div class="container socials">
+                <i class="social bi bi-instagram"><a href="https://www.instagram.com/"></a></i>
+                <i class="social bi bi-tiktok"><a href="https://www.tiktok.com/login"></a></i>
+                <i class="social bi bi-facebook"><a href="https://m.facebook.com/login/?locale=en_GB"></a></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
-      <h1 class="display-2 cu">Contact Us</h1>
+      <div class="card card1 mx-auto">
+        <h1 class="card-title cu">Send us a message!</h1>
+        <div class="card-body mx-auto" style="width: 35rem;">
+          <form class="form" action="https://formspree.io/f/xeqbgzzq" method="POST">
+            <div class="group">
+              <input placeholder="" type="text" required
+                oninvalid="this.setCustomValidity('Oops! Please Enter Your Name')" oninput="this.setCustomValidity('')">
+              <label for="name">Name</label>
+            </div>
+            <div class="group">
+              <input placeholder="" type="email" id="email" name="email" required
+                oninvalid="this.setCustomValidity('Oops! Please Enter Your Email')" oninput="this.setCustomValidity('')">
+              <label for="email">Email</label>
+            </div>
+            <div class="group">
+              <textarea placeholder="" id="comment" name="comment" rows="5" required
+                oninvalid="this.setCustomValidity('Oops! Please Enter Your Comment')"
+                oninput="this.setCustomValidity('')"></textarea>
+              <label for="comment">Comment</label>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- old -->
+    <!-- <div class="container">
       <div class="row justify-content-center">
         <div class="col">
           <div class="card card1 mx-auto p-4">
@@ -40,24 +93,25 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
     
 <style scoped>
 .card1 {
-  background-color: #fff;
+  background-color: #F7D0AB;
   border-radius: 10px;
   padding: 20px;
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
-  background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #f5f4f1 0%, rgba(255, 255, 255, 0) 71.88%), #FFFFFF;
+  /* background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #f5f4f1 0%, rgba(255, 255, 255, 0) 71.88%), #FFFFFF; */
   box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   border-radius: 23px;
   transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
   cursor: pointer;
+  margin: 2rem;
 }
 
 .card1:hover {
@@ -70,9 +124,11 @@
 }
 
 .inf1 {
-  width: 80%;
-  height: 400px;
-  background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #f5f4f1 0%, rgba(255, 255, 255, 0) 71.88%), #FFFFFF;
+  height: auto;
+  width: 85%;
+  /* width: 80%;
+  height: 400px; */
+  /* background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #f5f4f1 0%, rgba(255, 255, 255, 0) 71.88%), #FFFFFF; */
   box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   border-radius: 23px;
   transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
@@ -84,12 +140,23 @@
 }
 
 .inf2 {
-  font-size: 2rem;
+  font-size: 1rem;
   color: #92700f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bi:hover {
   color: #92700f;
+}
+
+.bi {
+  margin: 1rem;
+}
+
+.socials {
+  font-size: 2rem;
 }
 
 .inf {
@@ -143,11 +210,15 @@
 .form .group input:placeholder-shown+label,
 .form .group textarea:placeholder-shown+label {
   top: 10px;
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .form .group input:focus,
 .form .group textarea:focus {
+  border-color: #92700f;
+}
+
+input {
   border-color: #92700f;
 }
 

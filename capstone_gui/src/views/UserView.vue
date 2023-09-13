@@ -8,6 +8,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body m-2">
+                            <h1 class="display-2">Welcome back, {{ user.firstName }}! </h1>
                             <h2 class="display-3 card-title">User Information</h2>
                             <p class="card-text">Name: {{ user.firstName }} {{ user.lastName }}</p>
                             <p class="card-text">Age: {{ user.userAge }}</p>
@@ -57,27 +58,28 @@ export default {
 };
 </script>
 <style scoped>
-.card-text{
+.card-text {
     display: flex;
     align-items: start;
     font-size: 1.2rem;
     flex-wrap: wrap !important;
 }
+
 h2 {
-  color: #92700f;
+    color: #92700f;
 }
 
 button {
-  background-color: #92700f;
-  color: white;
-  padding: 0.4rem;
-  border-radius: 10px;
-  width: 5rem;
-  border: 1px solid #92700f;
+    background-color: #92700f;
+    color: white;
+    padding: 0.4rem;
+    border-radius: 10px;
+    width: 5rem;
+    border: 1px solid #92700f;
 }
 
 button:hover {
-  background-color: white;
-  color: #92700f;
+    background-color: white;
+    color: #92700f;
 }
 </style>
