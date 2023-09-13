@@ -1,4 +1,5 @@
 <template>
+  <div id="products"></div>
   <div class="product m-3">
     <!-- <h1 class="display-3 p-3 head" style="color: #92700f;">Our Products</h1> -->
     <!-- search -->
@@ -16,6 +17,18 @@
           </div>
         </div>
         <div class="col">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </button>
+            <ul class="dropdown-menu">
+              <li><button class="btn m-2" @click="filterByCategory(null)">All</button></li>
+              <li><button class="btn m-2" @click="filterByCategory('Necklaces')">Necklaces</button></li>
+              <li><button class="btn m-2" @click="filterByCategory('Earrings')">Earrings</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search Products..." v-model="searchQuery" />
             <button class="btn" @click="searchProducts">Search</button>
@@ -28,7 +41,7 @@
   <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-3 mx-sm-5 d-flex justify-content-center"
     v-if="filteredProducts.length > 0">
     <div class="col mt-4" v-for="product in filteredProducts" :key="product.prodID">
-      <div class="card">
+      <div class="card" data-aos="zoom-in">
         <img :src="product.prodUrl" class="card-img-top" :alt="product.prodName">
         <div class="card-body">
           <h5 class="card-title">{{ product.prodName }}</h5>
@@ -126,6 +139,14 @@ export default {
         const filteredProducts = this.products.filter((product) =>
           product.prodName.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
+        this.$store.commit('setFilteredProducts', filteredProducts);
+      }
+    },
+    filterByCategory(Category) {
+      if (Category === null) {
+        this.$store.commit('setFilteredProducts', this.products);
+      } else {
+        const filteredProducts = this.products.filter(product => product.category === Category);
         this.$store.commit('setFilteredProducts', filteredProducts);
       }
     },
