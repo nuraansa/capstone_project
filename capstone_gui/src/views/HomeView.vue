@@ -59,8 +59,8 @@
             <img src="https://i.ibb.co/VDQmDZr/IMG-2506-A.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              <p class="card-text">Transform your everyday look into a statement of glamour and prestige with our
-                handpicked selection of gold jewelry that stands the test of time.</p>
+              <p class="card-text">Transform your everyday look into a statement of glamour with our
+                selection of gold jewelry that stands the test of time.</p>
             </div>
           </div>
         </div>

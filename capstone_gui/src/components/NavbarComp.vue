@@ -24,13 +24,13 @@
                     </li>
                 </ul>
                 <div class="nav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="align-items: center;">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0" style="align-items: center;">
                         <li class="nav-item"><router-link to="/register"
                                 class="router-link-active nav-link">Register</router-link>
                         </li>
                         <li class="nav-item"><router-link to="/login"
                                 class="router-link-active nav-link">Login</router-link></li>
-                    </ul>
+                    
                     <!-- dropdown -->
                     <li class="nav-item dropdown mx-auto">
                         <button class="nav-link dropdown-toggle router-link-active" role="button" data-bs-toggle="dropdown"
@@ -44,7 +44,7 @@
                             <li><router-link to="/admin" class="dropdown-item" id="dd">Admin</router-link></li>
                             <li><router-link to="/user" class="dropdown-item" id="dd">Profile</router-link></li>
                         </ul>
-                    </li>
+                    </li></ul>
                 </div>
                 <!-- search -->
 

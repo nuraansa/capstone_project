@@ -23,6 +23,7 @@ export default createStore({
     userRole: null,
     eorror: null,
     cart: null,
+    filteredProducts: [],
   },
   getters: {
     // cartTotalPrice(state) {
@@ -121,6 +122,9 @@ export default createStore({
     },
     setError(state, error) {
       state.err = error;
+    },
+    setFilteredProducts(state, products) {
+      state.filteredProducts = products;
     },
   },
   actions: {
@@ -381,14 +385,6 @@ export default createStore({
       } catch (error) {
         console.error(error);
       }
-    },
-    //show cart
-    async getCart(context, id) {
-      const res = await axios.get(
-        `https://lily-jewels.onrender.com/user/${id}/carts`
-      );
-      context.commit("setCart", res.data);
-      console.log(res.data);
     },
     // checkout
     clearCart({ commit }) {

@@ -1,11 +1,10 @@
 <template>
   <div class="product m-3">
-    <h1 class="display-3 p-3 head" style="color: #92700f;">Our Products</h1>
-    <hr>
+    <!-- <h1 class="display-3 p-3 head" style="color: #92700f;">Our Products</h1> -->
     <!-- search -->
-    <div class="container mx-auto">
-      <div class="row d-flex" style="align-items: center;">
-        <div class="col">
+    <div class="container mx-auto m-4">
+      <div class="row d-flex">
+        <div class="col d-flex" style="justify-content: flex-start; align-items: center;flex-wrap: wrap;">
           <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               SORT
@@ -18,14 +17,40 @@
         </div>
         <div class="col">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search products..." v-model="searchQuery" />
+            <input type="text" class="form-control" placeholder="Search Products..." v-model="searchQuery" />
             <button class="btn" @click="searchProducts">Search</button>
           </div>
         </div>
       </div>
     </div>
+    <hr>
   </div>
   <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-3 mx-sm-5 d-flex justify-content-center"
+    v-if="filteredProducts.length > 0">
+    <div class="col mt-4" v-for="product in filteredProducts" :key="product.prodID">
+      <div class="card">
+        <img :src="product.prodUrl" class="card-img-top" :alt="product.prodName">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.prodName }}</h5>
+          <p class="card-text">{{ product.prodDesc }}</p>
+          <div class="card-footer">
+            R {{ product.price }}
+          </div>
+          <hr>
+          <div class="container d-flex gap-2" style="align-items: center; justify-content: center;">
+            <router-link :to="{
+              name: 'singleView',
+              params: { prodID: product.prodID }
+            }"><button class="btn">View</button></router-link>
+            <router-link to="/cart" class="btn">Add <i class="bi bi-bag-heart"
+                style="font-size: 1rem; "></i></router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- products -->
+  <!-- <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-3 mx-sm-5 d-flex justify-content-center"
     v-if="products">
     <div class="col mt-5" v-for="product in products" :key="product.prodID">
       <div class="card">
@@ -42,12 +67,13 @@
               name: 'singleView',
               params: { prodID: product.prodID }
             }"><button class="btn mt-2">View Product</button></router-link>
-          </div> <br>
-          <router-link to="/cart" class="btn">Add to Cart</router-link>
+            
+            <router-link to="/cart" class="btn">Add to Cart</router-link>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div v-else class="row">
     <spinner />
   </div>
@@ -63,9 +89,14 @@ export default {
     products() {
       return this.$store.state.products;
     },
+    filteredProducts() {
+      return this.$store.state.filteredProducts;
+    },
   },
   mounted() {
-    this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchProducts").then(() => {
+      this.$store.commit("setFilteredProducts", this.products);
+    });
   },
   methods: {
     toggleSortOrder() {
@@ -86,15 +117,16 @@ export default {
         this.products.sort((a, b) => b.price - a.price);
       }
     },
-    searchProducts() {
+    async searchProducts() {
       if (this.searchQuery.trim() === '') {
         // If the search query is empty, reset the filtered products
-        this.filteredProducts = [];
+        this.$store.commit('setFilteredProducts', []);
       } else {
         // Filter products based on the searchQuery and update filteredProducts
-        this.filteredProducts = this.products.filter((product) =>
+        const filteredProducts = this.products.filter((product) =>
           product.prodName.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
+        this.$store.commit('setFilteredProducts', filteredProducts);
       }
     },
   },
@@ -102,7 +134,6 @@ export default {
     return {
       sortOrder: 'asc',
       searchQuery: '',
-      filteredProducts: [],
     };
   },
 };
@@ -139,7 +170,7 @@ export default {
   border-radius: 1rem;
   padding: 0.3rem;
   border: 0;
-  width: 13rem;
+  width: 9rem;
 }
 
 .btn:hover {
