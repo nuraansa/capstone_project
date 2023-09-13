@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
-    <h1 class="display-1 p-1 glow me">About Us</h1>
-    <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 70%;">
+  <div class="about" id="about">
+    <h1 class="display-1 p-1 glow me" data-aos="zoom-in-down">About Us</h1>
+    <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 70%;" data-aos="zoom-in">
     <div class="container">
       <div class="row mx-auto m-5">
         <div class="col glow">
@@ -17,7 +17,7 @@
       <div class="card mb-3 mx-auto" style="width: 60rem;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://i.ibb.co/JHV7q2B/AIMG-2507.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="https://i.ibb.co/JHV7q2B/AIMG-2507.jpg" class="img-fluid rounded-start" alt="..."  data-aos="fade-up">
           </div>
           <div class="col-md-8 mx-auto d-flex">
             <div class="card-body">
@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <img src="https://i.ibb.co/6cQTCSG/ALJ10.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="https://i.ibb.co/6cQTCSG/ALJ10.jpg" class="img-fluid rounded-start" alt="..."  data-aos="fade-up">
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
       <div class="card mb-3 mx-auto" style="width: 60rem;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" class="img-fluid rounded-start" alt="..." data-aos="fade-up">
           </div>
           <div class="col-md-8 mx-auto d-flex">
             <div class="card-body">
@@ -76,14 +76,14 @@
             </div>
           </div>
           <div class="col-md-4">
-            <img src="https://i.ibb.co/9bx8NZT/ALJ11.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="https://i.ibb.co/9bx8NZT/ALJ11.jpg" class="img-fluid rounded-start" alt="..."  data-aos="fade-up">
           </div>
         </div>
       </div>
     </div>
     <!-- accordian -->
     <div class="container m-5 text-center">
-      <h1 class="display-3 p-5 glow">Our core values</h1>
+      <h1 class="display-3 p-5 glow"  data-aos="fade-up">Our core values</h1>
       <div class="accordion accordion-flush mx-auto" id="accordionFlushExample" style="width: 40rem;">
         <div class="accordion-item">
           <h2 class="accordion-header">
@@ -148,6 +148,7 @@
   animation: typing 1.4s steps(20), cursor 0.4s step-end infinite alternate;
 }
 
+/* 
 @keyframes cursor {
   50% {
     border-color: transparent;
@@ -158,7 +159,7 @@
   from {
     width: 0rem;
   }
-}
+} */
 
 .centered {
   position: absolute;

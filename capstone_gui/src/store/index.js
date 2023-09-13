@@ -24,6 +24,7 @@ export default createStore({
     eorror: null,
     cart: null,
     filteredProducts: [],
+    selectedCategory: null,
   },
   getters: {
     // cartTotalPrice(state) {
@@ -125,6 +126,9 @@ export default createStore({
     },
     setFilteredProducts(state, products) {
       state.filteredProducts = products;
+    },
+    setSelectedCategory(state, category) {
+      state.selectedCategory = category;
     },
   },
   actions: {

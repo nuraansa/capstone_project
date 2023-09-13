@@ -14,7 +14,7 @@
                         <router-link to="/" class="router-link-active nav-link">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/about" class="router-link-active nav-link">About</router-link>
+                        <router-link to="/about" class="router-link-active nav-link" >About</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/products" class="router-link-active nav-link">Products</router-link>

@@ -3,14 +3,14 @@
         <hr>
         <div class="container text-center">
             <div class="row">
-                <div class="col"> <img src="https://i.ibb.co/YbhMKWp/veclogo.png" alt="" style="width: 7rem;">
+                <div class="col"> <img src="https://i.ibb.co/YbhMKWp/veclogo.png" alt="" style="width: 7rem;" data-aos="fade-up">
 
                     <ul class="d-flex" style="align-items: center; flex-wrap: wrap;">
-                        <li class="p-1 p-sm-3"><router-link class="rl" to="/">Home</router-link></li> |
-                        <li class="p-1 p-sm-3"><router-link class="rl" to="/about">About</router-link></li> |
-                        <li class="p-1 p-sm-3"><router-link class="rl" to="/products">Products</router-link></li> |
-                        <li class="p-1 p-sm-3"><router-link class="rl" to="/contact">Contact</router-link></li> |
-                        <li class="p-1 p-sm-3"><router-link class="rl" to="/tc">Terms & Conditions</router-link></li>
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/" data-aos="fade-up">Home</router-link></li> |
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/about" data-aos="fade-up">About</router-link></li> |
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/products" data-aos="fade-up">Products</router-link></li> |
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/contact" data-aos="fade-up">Contact</router-link></li> |
+                        <li class="p-1 p-sm-3"><router-link class="rl" to="/tc" data-aos="fade-up">Terms & Conditions</router-link></li>
                         <!-- <li class="p-3"><i class="bi bi-telephone social1 d-flex">+27 12 345 6789</i></li>
                         <li class="p-3"><i class="bi bi-envelope social1 d-flex">lilyjewels@gmail.com</i></li> -->
                     </ul>
