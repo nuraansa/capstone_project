@@ -112,6 +112,36 @@ class Products {
       });
     });
   }
+  filterNecklaces(req, res) {
+    const query = `
+    SELECT prodID, prodName, quantity, price, Category, prodDesc, prodUrl
+    FROM Products
+    WHERE Category
+    IN ("Necklaces");
+    `
+    db.query(query, (err, results) => {
+      if (err) throw err;
+      res.json({
+        status: res.statusCode,
+        results,
+      });
+    });
+  }
+  filterEarrings(req, res) {
+    const query = `
+    SELECT prodID, prodName, quantity, price, Category, prodDesc, prodUrl
+    FROM Products
+    WHERE Category
+    IN ("Earrings");
+    `
+    db.query(query, (err, results) => {
+      if (err) throw err;
+      res.json({
+        status: res.statusCode,
+        results,
+      });
+    });
+  }
 
 }
 

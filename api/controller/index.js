@@ -77,6 +77,14 @@ routes.delete("/user/:id/cart/:id", (req, res) => {
   cart.removeCart(req, res);
 });
 
+//Filter 
+routes.get("/items/Necklaces", (req, res) => {
+  products.filterNecklaces(req, res);
+});
+routes.get("/items/Earrings", (req, res) => {
+  products.filterEarrings(req, res);
+});
+
 module.exports = {
   express,
   routes,
