@@ -21,10 +21,10 @@ export default createStore({
     logStatus: null,
     userData: null,
     userRole: null,
-    eorror: null,
-    cart: null,
+    error: null,
     filteredProducts: [],
     selectedCategory: null,
+    cartItems: [],
   },
   getters: {
     // cartTotalPrice(state) {
@@ -71,11 +71,13 @@ export default createStore({
     editUser(state, user) {
       state.user = user;
     },
-    setCart(state, value) {
-      state.cart = value;
+    setCart(state, cartItems) {
+      state.cart = cartItems;
     },
-    addProductToCart(state, product) {
-      state.cart.push(product);
+    clearCart(state) {
+      state.cart = [];
+      state.totalAmount = 0;
+      state.totalQuantity = 0;
     },
     decrementProductQuantity(state, productId) {
       const product = state.products.find(
@@ -85,8 +87,9 @@ export default createStore({
         product.quantity--;
       }
     },
-    removeFromCart(state, cartID) {
-      state.cart = state.cart.filter((cartItem) => cartItem.cartID !== cartID);
+    addToCart(state, product) {
+      state.cartItems.push(product);
+      localStorage.setItem("cart", JSON.stringify(state.cartItems)); // Save to localStorage
     },
     clearCart(state) {
       state.cart = [];
@@ -118,7 +121,7 @@ export default createStore({
         localStorage.removeItem("userData");
       }
     },
-    setmessage(state, message) {
+    setMessage(state, message) {
       state.message = message;
     },
     setError(state, error) {
@@ -321,7 +324,7 @@ export default createStore({
           });
         }
       } catch (e) {
-        context.commit("setmessage", "An error has occured");
+        context.commit("setMessage", "An error has occured");
       }
     },
     //register
@@ -346,54 +349,22 @@ export default createStore({
           });
         }
       } catch (e) {
-        context.commit("setmessage", "An error has occured");
+        context.commit("setMessage", "An error has occured");
       }
     },
 
     // cart crud
-    //show cart
-    async getCart(context, id) {
-      const res = await axios.get(
-        `https://lily-jewels.onrender.com/user/${id}/cart`
-      );
-      context.commit("setCart", res.data);
-      console.log(id);
+    addCart(context, product){
+      context.commit('addToCart', product);
     },
-
-    //add to cart
-    async addToCart({ commit }, { userID, prodID }) {
-      try {
-        const response = await axios.post(
-          `https://lily-jewels.onrender.com/user/${userID}/cart`,
-          {
-            userID,
-            prodID,
-          }
-        );
-
-        if (response.status === 200) {
-          commit("addProductToCart", response.data);
-        } else {
-        }
-      } catch (error) {
-        console.error(error);
+    async fetchCarts(context){
+      try{
+        const cartData = JSON.parse(localStorage.getItem('cart'));
+        this.$store.commit('setCart', cartData);
+      } catch (e){
+        context.commit("setMsg", "Oops! An error has occurred")
       }
-    },
-    //remove from cart
-    async removeFromCart({ commit }, { userID, cartID }) {
-      try {
-        await axios.delete(
-          `https://lily-jewels.onrender.com/user/${userID}/cart/${cartID}`
-        );
-        commit("removeFromCart", cartID);
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    // checkout
-    clearCart({ commit }) {
-      commit("clearCart");
-    },
+    }
   },
   // sort
   sortProducts(state, sortBy) {
