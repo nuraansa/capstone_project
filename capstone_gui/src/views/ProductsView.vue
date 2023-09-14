@@ -22,9 +22,8 @@
               Category
             </button>
             <ul class="dropdown-menu">
-              <li><button class="btn m-2" @click="filterByCategory(null)">All</button></li>
-              <li><button class="btn m-2" @click="filterByCategory('Necklaces')">Necklaces</button></li>
-              <li><button class="btn m-2" @click="filterByCategory('Earrings')">Earrings</button></li>
+              <li><router-link to="/necklaces">Necklaces</router-link></li>
+              <li><router-link to="/earrings">Earrings</router-link></li>
             </ul>
           </div>
         </div>
@@ -150,7 +149,7 @@ export default {
         this.$store.commit('setFilteredProducts', filteredProducts);
       }
     },
-    addToCart(product){
+    addToCart(product) {
       this.$store.dispatch('addCart', product)
     }
   },
