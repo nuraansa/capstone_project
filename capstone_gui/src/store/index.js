@@ -366,6 +366,24 @@ export default createStore({
       }
     }
   },
+  //filter
+  async fetchNecklaces(context) {
+    try {
+      const { data } = await axios.get(`${dataUrl}/items/Necklaces`);
+      context.commit("setProducts", data.results);
+    } catch (e) {
+      context.commit("setMsg", "Oops! An error has occured");
+    }
+  },
+  async fetchEarrings(context) {
+     try {
+      const { data } = await axios.get(`${dataUrl}/items/Earrings`);
+      context.commit("setProducts", data.results);
+    } catch (e) {
+      context.commit("setMsg", "Oops! An error has occured");
+    }
+  },
+
   // sort
   sortProducts(state, sortBy) {
     if (sortBy === "price") {
@@ -379,5 +397,6 @@ export default createStore({
       state.users.sort((a, b) => a.firstName.localeCompare(b.firstName));
     }
   },
+  
   modules: {},
 });

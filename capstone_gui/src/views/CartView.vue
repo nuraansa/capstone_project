@@ -1,10 +1,10 @@
 <template>
     <div class="bodyCart">
-        <h1 class="display-3 m-3 glow">Shopping Cart <i class="bi bi-bag-heart" style="font-size: 2.4rem; "></i></h1>
-        <div class="container d-flex justify-content-center align-items-center">
+        <h1 class="display-3 m-3 glow">Lily Cart <i class="bi bi-bag-heart" style="font-size: 2.4rem; "></i></h1>
+        <div class="container d-flex justify-content-center align-items-center carty">
             <div class="row justify-content-center">
                 <div class="col-4 p-0">
-                    <img class="img-fluid" src="https://i.ibb.co/0JxYxft/lilyjewelss.webp" alt="">
+                    <img class="img-fluid " src="https://i.ibb.co/0JxYxft/lilyjewelss.webp" alt="">
                 </div>
                 <div class="col-8 p-0">
                     <div class="table">
@@ -16,7 +16,7 @@
                                     <th>Product Name</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <th></th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,6 +91,9 @@ export default {
 </script>
 
 <style scoped>
+.carty{
+    background-color: #F7D0AB;
+}
 table {
     width: 100%;
 }
@@ -105,7 +108,11 @@ table {
 table,
 th,
 td {
+    background-color: #F7D0AB;
     border: 2px solid #92700f;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
 }
 
 .table {
@@ -152,6 +159,10 @@ td {
 .clear-cart-button:hover {
     background-color: white;
     color: #92700f;
+}
+img{
+    height: fit-content;
+    align-content: center;
 }
 /* .col {
  padding: 0;
