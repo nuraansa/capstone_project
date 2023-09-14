@@ -55,8 +55,8 @@
               name: 'singleView',
               params: { prodID: product.prodID }
             }"><button class="btn">View</button></router-link>
-            <router-link to="/cart" class="btn">Add <i class="bi bi-bag-heart"
-                style="font-size: 1rem; "></i></router-link>
+            <button @click="addToCart(product)" class="btn btn-outline-primary"> Add 🛒
+            </button>
           </div>
         </div>
       </div>
@@ -150,6 +150,9 @@ export default {
         this.$store.commit('setFilteredProducts', filteredProducts);
       }
     },
+    addToCart(product){
+      this.$store.dispatch('addCart', product)
+    }
   },
   data() {
     return {

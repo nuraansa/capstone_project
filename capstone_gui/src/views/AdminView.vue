@@ -2,16 +2,15 @@
   <section id="admin" class="adm">
     <div class="container-fluid">
       <h1 class="display-2 text-center mt-2">
-        Admin
+        Admin Interface
         <hr>
       </h1>
-      <h1 class="display-3 text-center mb-2 p-2">
-        Product Interface
-      </h1>
       <div class="container-fluid">
+        <h1 class="display-3 text-center mb-2 p-2">
+        Products
+      </h1> <addButton />
         <!-- <button class="btn2 float-start" @click="sortByPrice">Sort By Price</button>
         <button class="btn2 float-start" @click="sortByName">Sort By Name</button> -->
-        <addButton />
       </div>
       <table class="table table-responsive table-bordered border-black table-hover" v-if="products">
         <thead>
@@ -63,7 +62,7 @@
     <section class="users" id="users">
       <div class="container-fluid">
         <h1 class="display-3 text-center mb-2 p-4">
-          User Interface
+          Users
         </h1>
         <div class="container-fluid">
           <!-- <button class="btn2 float-start" @click="sortUserByName">Sort By Name</button> -->
