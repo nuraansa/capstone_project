@@ -72,12 +72,12 @@
           <thead>
             <tr>
               <th scope="col">ID#</th>
-              <th scope="col">Image</th>
+              <th scope="col d-none d-md-block">Image</th>
               <th scope="col">User Name</th>
               <th scope="col">Gender</th>
               <th scope="col">Age</th>
               <th scope="col">User Role</th>
-              <th scope="col">Email Adress</th>
+              <th scope="col d-none d-md-block">Email Adress</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -88,7 +88,7 @@
               </th>
               <td>
                 <div class="tableRows">
-                  <img class="img-fluid d-none d-sm-block" :src="user.userProfile" :alt="user.firstName" loading="lazy" />
+                  <img class="img-fluid d-none d-md-block" :src="user.userProfile" :alt="user.firstName" loading="lazy" />
                 </div>
               </td>
               <td>
@@ -104,7 +104,7 @@
                 <div class="tableRows">{{ user.userRole }}</div>
               </td>
               <td>
-                <div class="tableRows">{{ user.emailAdd }}</div>
+                <div class="tableRows d-none d-md-block">{{ user.emailAdd }}</div>
               </td>
               <td>
                 <div class="tableRows">
@@ -260,4 +260,6 @@ td {
   height: 150px;
 }
 
-@media screen and (max-width: 808px) {}</style>
+@media (max-width: 808px) {
+
+}</style>

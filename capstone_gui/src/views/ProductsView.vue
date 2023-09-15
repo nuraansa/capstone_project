@@ -1,12 +1,12 @@
 <template>
   <div id="products"></div>
   <div class="product m-3">
-    <!-- <h1 class="display-3 p-3 head" style="color: #92700f;">Our Products</h1> -->
+    <h1 class="display-4 p-3 head" style="color: #92700f;">Products</h1>
     <!-- search -->
     <div class="container mx-auto m-4">
       <div class="row d-flex">
         <div class="col d-flex" style="justify-content: flex-start; align-items: center;flex-wrap: wrap;">
-          <div class="dropdown">
+          <div class="dropdown m-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               SORT
             </button>
@@ -15,11 +15,9 @@
               <li> <button class="btn m-2" @click="toggleSortOrder">Sort by Price</button></li>
             </ul>
           </div>
-        </div>
-        <div class="col">
-          <div class="dropdown">
+          <div class="dropdown m-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Category
+              CATEGORY
             </button>
             <ul class="dropdown-menu">
               <li><router-link to="/necklaces">Necklaces</router-link></li>
@@ -37,11 +35,11 @@
     </div>
     <hr>
   </div>
-  <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-3 mx-sm-5 d-flex justify-content-center"
+  <div class="row products row-cols-1 row-cols-sm-2 row-cols-lg-3 d-flex justify-content-center"
     v-if="filteredProducts.length > 0">
-    <div class="col mt-4" v-for="product in filteredProducts" :key="product.prodID">
+    <div class="col-12 col-sm-6 col-lg-4 mb-5" v-for="product in filteredProducts" :key="product.prodID">
       <div class="card" data-aos="zoom-in">
-        <img :src="product.prodUrl" class="card-img-top" :alt="product.prodName">
+        <img :src="product.prodUrl" class="card-img-top img-fluid" :alt="product.prodName">
         <div class="card-body">
           <h5 class="card-title">{{ product.prodName }}</h5>
           <p class="card-text">{{ product.prodDesc }}</p>

@@ -1,7 +1,13 @@
 <template>
   <div class="about" id="about">
-    <h1 class="display-1 p-1 glow me" data-aos="zoom-in-down">About Us</h1>
-    <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 70%;" data-aos="zoom-in">
+    <div class="container">
+      <img src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" alt="Blurred Image" class="img-fluid blurry-image"
+        data-aos="zoom-in">
+      <div class="text-overlay">
+        <h1 class="display-1 p-1 glow me" data-aos="zoom-in-down">About Us</h1>
+      </div>
+    </div>
+    <!-- <img class="img-fluid" src="https://i.ibb.co/0KN5sNy/IMG-2502.jpg" style="width: 70%;" data-aos="zoom-in"> -->
     <div class="container">
       <div class="row mx-auto m-5">
         <div class="col glow">
@@ -14,10 +20,11 @@
     <!-- 4 info cards -->
     <div class="container">
       <!-- card1 -->
-      <div class="card mb-3 mx-auto" style="width: 60rem;">
+      <div class="card mb-3 mx-auto">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://i.ibb.co/JHV7q2B/AIMG-2507.jpg" class="img-fluid rounded-start" alt="..."  data-aos="fade-up">
+            <img src="https://i.ibb.co/JHV7q2B/AIMG-2507.jpg" class="img-fluid rounded-start" alt="..."
+              data-aos="fade-up">
           </div>
           <div class="col-md-8 mx-auto d-flex">
             <div class="card-body">
@@ -31,7 +38,7 @@
         </div>
       </div>
       <!-- card2 -->
-      <div class="card mb-3 mx-auto" style="width: 60rem;">
+      <div class="card mb-3 mx-auto">
         <div class="row g-0">
           <div class="col-md-8 d-flex">
             <div class="card-body">
@@ -43,15 +50,16 @@
             </div>
           </div>
           <div class="col-md-4">
-            <img src="https://i.ibb.co/6cQTCSG/ALJ10.jpg" class="img-fluid rounded-start" alt="..."  data-aos="fade-up">
+            <img src="https://i.ibb.co/6cQTCSG/ALJ10.jpg" class="img-fluid rounded-start" alt="..." data-aos="fade-up">
           </div>
         </div>
       </div>
       <!-- card3 -->
-      <div class="card mb-3 mx-auto" style="width: 60rem;">
+      <div class="card mb-3 mx-auto">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" class="img-fluid rounded-start" alt="..." data-aos="fade-up">
+            <img src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" class="img-fluid rounded-start" alt="..."
+              data-aos="fade-up">
           </div>
           <div class="col-md-8 mx-auto d-flex">
             <div class="card-body">
@@ -65,7 +73,7 @@
         </div>
       </div>
       <!-- card4 -->
-      <div class="card mb-3 mx-auto" style="width: 60rem;">
+      <div class="card mb-3 mx-auto">
         <div class="row g-0">
           <div class="col-md-8 d-flex">
             <div class="card-body">
@@ -76,15 +84,15 @@
             </div>
           </div>
           <div class="col-md-4">
-            <img src="https://i.ibb.co/9bx8NZT/ALJ11.jpg" class="img-fluid rounded-start" alt="..."  data-aos="fade-up">
+            <img src="https://i.ibb.co/9bx8NZT/ALJ11.jpg" class="img-fluid rounded-start" alt="..." data-aos="fade-up">
           </div>
         </div>
       </div>
     </div>
     <!-- accordian -->
-    <div class="container m-5 text-center">
-      <h1 class="display-3 p-5 glow"  data-aos="fade-up">Our core values</h1>
-      <div class="accordion accordion-flush mx-auto" id="accordionFlushExample" style="width: 40rem;">
+    <div class="container text-center">
+      <h1 class="display-3 p-5 glow" data-aos="fade-up">Our core values</h1>
+      <div class="accordion accordion-flush mx-auto" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -138,14 +146,20 @@
   text-align: center;
   /* animation: glow 1s ease-in-out infinite alternate; */
 }
-
 .me {
   margin: 2rem;
-  text-shadow: 1px 2px 3px #777c7b;
+  font-size: 6.5rem;
+  text-shadow: 5px 4px 2px #ffffff;
   white-space: nowrap;
   overflow: initial;
   width: 95%;
   animation: typing 1.4s steps(20), cursor 0.4s step-end infinite alternate;
+}
+
+.accordion-header {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 
@@ -160,7 +174,6 @@
     width: 0rem;
   }
 } */
-
 .centered {
   position: absolute;
   top: 33%;
@@ -169,7 +182,7 @@
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -185,7 +198,7 @@ img {
 }
 
 .card-text {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .card-title {
@@ -213,4 +226,105 @@ img {
     margin:0;
 }
 } */
+
+/* about */
+.container {
+  position: relative;
+}
+
+/* Blurred image */
+.blurry-image {
+  width: 100%;
+  filter: blur(4px);
+}
+
+/* Text overlay */
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  /* Semi-transparent background */
+  color: white;
+  padding: 20px;
+  /* font-size: 28px; */
+  text-align: center;
+}
+
+/* media query */
+@media screen and (max-width: 1200px) {
+  .me {
+    font-size: 4.5rem;
+  }
+
+  .card-title {
+    font-size: 1.8rem;
+  }
+
+  .card-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 1043px) {
+
+  /* Change card layout to image on top and text on bottom */
+  .card {
+    display: flex;
+    width: 100%;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .card-text {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .me {
+    font-size: 3.5rem;
+  }
+
+  .card-title {
+    font-size: 1.6rem;
+  }
+
+  .card-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .me {
+    font-size: 2.5rem;
+  }
+
+  .text-overlay {
+    text-align: center;
+  }
+
+  .accordion-body {
+    text-align: center;
+  }
+}
 </style>

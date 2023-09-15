@@ -3,7 +3,7 @@
     <div class="container d-flex justify-content-center align-items-center">
       <div class="card shadow-lg">
         <div class="row">
-          <div class="col">
+          <div class="col col-md-6">
             <h1 class="display-3 m-4">Login</h1>
             <form class="form" action="/action_page.php" @submit.prevent="login">
               <div class="form-group">
@@ -22,8 +22,8 @@
               <button type="submit" class="btn">Log in</button>
             </form>
           </div>
-          <div class="col" style="height: 100vh;">
-            <img class="img-fluid" src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" alt="">
+          <div class="col col-md-6">
+            <img class="img-fluid d-flex align-items-center" src="https://i.ibb.co/mRFyz3X/AIMG-2508.jpg" alt="">
           </div>
         </div>
       </div>
@@ -92,13 +92,24 @@ export default {
 .card:hover {
   transform: scale(1.05);
 }
-
+img{
+  border-radius:0px 23px 23px 0px;
+  height: 30rem;
+}
 #input {
   border: 1px solid #92700f;
   border-radius: 0.3rem;
   height: 2.2rem;
   margin: 0.3 rem;
-  width: 20rem;
+  margin-left: 0.4rem;
+  /* width: 20rem; */
+}
+.form-group {
+    width: 100%;
+}
+
+input {
+    width: 100%;
 }
 
 .login {
@@ -107,5 +118,6 @@ export default {
 
 .col {
   align-items: center;
+  flex-wrap: wrap;
 }
 </style>
