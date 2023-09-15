@@ -3,24 +3,25 @@
     <div class="container mx-auto">
       <div class="card inf1 mx-auto" style="background-color: #F7D0AB;">
         <div class="row no-gutters">
-          <!-- Left Column (Image) -->
           <div class="col-md-6">
             <img src="https://i.ibb.co/0JxYxft/lilyjewelss.webp" class="card-img" alt="Image">
           </div>
-          <!-- Right Column (Text) -->
           <div class="col-md-6">
             <div class="card-body">
               <h2 class="card-title cu display-4">Reach out to us!</h2>
               <hr>
               <p class="card-text">
-                <i class="bi bi-telephone inf2"> +27 12 345 6789</i>
+                <i class="bi bi-telephone"> </i>+27 12 345 6789
               </p>
-              <p class="card-text"><i class="bi bi-envelope inf2"> lilyjewels@gmail.com</i></p>
-              <p class="card-text"><i class="bi bi-house inf2"> Cape Town, South Africa</i></p>
+              <p class="card-text"><i class="bi bi-envelope"> </i>lilyjewels@gmail.com</p>
+              <p class="card-text"><i class="bi bi-house"> </i>Cape Town, South Africa</p>
+              <p class="card-text"><i class="social bi bi-instagram"></i><a
+                  href="https://instagram.com/lilyjewels_?igshid=MzRlODBiNWFlZA==">Instagram: @lilyjewels_</a></p>
+              <p class="card-text"><i class="social bi bi-tiktok"></i><a
+                  href="https://www.tiktok.com/@lilyjewelss?_t=8fi40VmESzV&_r=1">TikTok: @lilyjewelss</a></p>
+              <p class="card-text"><i class="social bi bi-facebook"></i><a
+                  href="https://m.facebook.com/login/?locale=en_GB">Facebook: @lilyjewelss</a></p>
               <div class="container socials">
-                <i class="social bi bi-instagram"><a href="https://www.instagram.com/"></a></i>
-                <i class="social bi bi-tiktok"><a href="https://www.tiktok.com/login"></a></i>
-                <i class="social bi bi-facebook"><a href="https://m.facebook.com/login/?locale=en_GB"></a></i>
               </div>
             </div>
           </div>
@@ -30,8 +31,8 @@
     <div class="container">
       <div class="card card1 mx-auto">
         <h1 class="card-title cu">Send us a message!</h1>
-        <div class="card-body mx-auto" style="width: 35rem;">
-          <form class="form" action="https://formspree.io/f/xeqbgzzq" method="POST">
+        <div class="card-body mx-auto">
+          <form class="form" action="https://formspree.io/f/mjvdnbjp" method="POST">
             <div class="group">
               <input placeholder="" type="text" required
                 oninvalid="this.setCustomValidity('Oops! Please Enter Your Name')" oninput="this.setCustomValidity('')">
@@ -102,7 +103,7 @@
   background-color: #F7D0AB;
   border-radius: 10px;
   padding: 20px;
-  width: 85%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
@@ -147,16 +148,29 @@
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+  color: #92700f;
+}
+
+a:hover {
+  color: white;
+}
+
 .bi:hover {
   color: #92700f;
 }
 
 .bi {
+  font-size: 2rem;
   margin: 1rem;
+  color: #92700f;
 }
 
-.socials {
-  font-size: 2rem;
+.bi-instagram,
+.bi-tiktok,
+.bi-facebook {
+  color: #92700f;
 }
 
 .inf {
@@ -252,5 +266,75 @@ input {
   background-color: #ffffff;
   color: #92700f;
   border: #92700f 1px solid;
+}
+
+.card-text {
+  text-align: left;
+  font-size: 1.5rem;
+  color: #92700f;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* media queries */
+@media(max-width: 770px) {
+  .card1 {
+    width: 90%;
+  }
+
+  .form .group input,
+  .form .group textarea {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .form .group label {
+    font-size: 14px;
+    top: -6px;
+    left: 6px;
+  }
+
+  .bi {
+    font-size: 1.5rem;
+    margin: 0.5rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form .group label {
+    font-size: 12px;
+  }
+
+  .bi {
+    font-size: 1.2rem;
+    margin: 0.3rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media(max-width: 300px) {
+  .form .group label {
+    font-size: 10px;
+  }
+
+  .bi {
+    font-size: 1rem;
+    margin: 0.2rem;
+  }
+
+  .card-text {
+    font-size: 0.8rem;
+  }
 }
 </style>
