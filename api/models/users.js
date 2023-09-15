@@ -1,6 +1,6 @@
 // Users
 const db = require("../config");
-const { hash, compare, hasSync } = require("bcrypt");
+const { hash, compare, hashSync } = require("bcrypt");
 const { createToken } = require("../middleware/authenticateUser");
 
 class Users {
@@ -105,28 +105,11 @@ class Users {
         });
       }
 
-    // Fetch One User
-  fetchUser(req, res) {
-    const id = req.params.id;
-    const query = `
-          SELECT userID, firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile
-          FROM Users
-          WHERE userID = ?
-          `;
-    db.query(query, [id], (err, result) => {
-      if (err) throw err;
-      res.json({
-        status: res.statusCode,
-        result,
-      });
-    });
-  }
-
     // Update User
   updateUser(req, res) {
     const data = req.body;
     if (data.userPass) {
-      data.userPass = hasSync(data.userPass, 10);
+      data.userPass = hashSync(data.userPass, 10);
     }
     const query = `
             UPDATE Users
