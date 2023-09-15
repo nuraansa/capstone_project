@@ -7,49 +7,49 @@
                         <h1 class="display-3"> Register </h1>
                         <form class="form-inline" id="form" action="/action_page.php" @submit.prevent="register">
                             <div class="form-group">
-                                <label class="m-2" for="firstName">FIRST NAME</label>
+                                <label class="m-1" for="firstName">First Name</label>
                                 <input type="name" class="form-control" id="firstName" placeholder="Your Name"
                                     v-model="payload.firstName">
                             </div>
                             <br>
                             <div class="form-group">
-                                <label class="m-2" for="lastName">Last Name</label>
+                                <label class="m-1" for="lastName">Last Name</label>
                                 <input type="surname" class="form-control" id="lastName" placeholder="Your Surname"
                                     v-model="payload.lastName">
                             </div>
                             <br>
                             <div class="form-group">
-                                <label class="m-2" for="userAge">AGE</label>
+                                <label class="m-1" for="userAge">Age</label>
                                 <input type="number" class="form-control" id="userAge" placeholder="Age"
                                     v-model="payload.userAge">
                             </div>
                             <br>
                             <div class="form-group">
-                                <label class="m-2" for="gender">GENDER</label>
+                                <label class="m-1" for="gender">Gender</label>
                                 <input type="text" class="form-control" id="gender" placeholder="Gender"
                                     v-model="payload.gender">
                             </div>
                             <br>
                             <div class="form-group">
-                                <label class="m-2" for="userRole">USER ROLE</label>
+                                <label class="m-1" for="userRole">User Role</label>
                                 <input type="role" class="form-control" id="userRole" placeholder="eg. Admin"
                                     v-model="payload.userRole">
                             </div>
                             <br>
                             <div class="form-group">
-                                <label class="m-2" for="email">Email Address:</label>
+                                <label class="m-1" for="email">Email Address:</label>
                                 <input type="email" class="form-control" id="emailAdd" placeholder="name@domain.com"
                                     v-model="payload.emailAdd">
                             </div>
                             <br>
                             <div class="form-group">
-                                <label class="m-2" for="userPass">Password:</label>
+                                <label class="m-1" for="userPass">Password:</label>
                                 <input type="password" class="form-control" id="userPass" placeholder="Create a Password"
                                     v-model="payload.userPass">
                             </div>
                             <br>
                             <div class="form-group">
-                                <label class="m-2" for="userProfile">User Profile</label>
+                                <label class="m-1" for="userProfile">User Profile</label>
                                 <input type="picture" class="form-control" id="userProfile" placeholder="url"
                                     v-model="payload.userProfile">
                             </div>
@@ -60,7 +60,7 @@
                         </form>
                     </div>
                     <div class="col">
-                        <img class="img-fluid" src="../assets/video/video_lj.gif" alt="">
+                        <img class="img-fluid" src="../assets/video/videoLJ.gif" alt="videoLJ">
                     </div>
                 </div>
             </div>
@@ -132,7 +132,11 @@ export default {
 }
 
 .form-group {
-    width: 30rem;
+    width: 100%;
+}
+
+input {
+    width: 100%;
 }
 
 form {
@@ -142,9 +146,8 @@ form {
 #form {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    /* align-items: center; */
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 input {
