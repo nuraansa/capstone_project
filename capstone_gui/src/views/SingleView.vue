@@ -24,13 +24,12 @@
                     <span class="boldP display-5">Price: R{{ product.price }} </span>
                   </p> <br>
                   <div class="addCart">
-                    <router-link to="/cart"><button class="btn m-1">
-                        Add to Cart
-                      </button></router-link>
+                    <button @click="addToCart(product)" class="btn btn-outline-primary"> Add To Cart 🛒
+                    </button>
                     <router-link to="/products"><button class="btn m-1">
                         Back to Products
                       </button></router-link> <br>
-
+                      <router-link to="/cart"><button class="btn">Checkout <i class="bi bi-bag-heart" style="font-size: 1rem;"></i></button></router-link>
                   </div>
                 </div>
               </div>
@@ -47,6 +46,8 @@
   
 <script>
 import spinner from "@/components/SpinnerComp.vue"
+import sweet from 'sweetalert'
+
 export default {
   components: {
     spinner
@@ -59,7 +60,19 @@ export default {
     product() {
       return this.$store.state.product
     }
-  }
+  },
+  methods: {
+    addToCart(product) {
+      this.$store.dispatch('addCart', product)
+      sweet({
+        title: 'Added to Cart',
+        text: `${product.prodName} has been added to your cart.`,
+        icon: 'success',
+        timer: 2000,
+        button: false,
+      });
+    }
+  },
 };
 </script>
   

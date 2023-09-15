@@ -20,8 +20,9 @@
               CATEGORY
             </button>
             <ul class="dropdown-menu">
-              <li><router-link to="/necklaces">Necklaces</router-link></li>
-              <li><router-link to="/earrings">Earrings</router-link></li>
+              <li @click="selectCategory(null)"><button class="btn m-2">All</button></li>
+              <li @click="selectCategory('Necklaces')"><button class="btn m-2">Necklaces</button></li>
+              <li @click="selectCategory('Earrings')"><button class="btn m-2">Earrings</button></li>
             </ul>
           </div>
         </div>
@@ -91,6 +92,7 @@
   
 <script>
 import spinner from "@/components/SpinnerComp.vue"
+import sweet from 'sweetalert'
 export default {
   components: {
     spinner
@@ -115,46 +117,50 @@ export default {
     },
     sortProducts() {
       if (this.sortOrder === 'asc') {
-        this.products.sort((a, b) => a.prodName.localeCompare(b.prodName));
+        this.filteredProducts.sort((a, b) => a.prodName.localeCompare(b.prodName));
       } else {
-        this.products.sort((a, b) => b.prodName.localeCompare(a.prodName));
+        this.filteredProducts.sort((a, b) => b.prodName.localeCompare(a.prodName));
       }
-    },
-    sortProducts() {
       if (this.sortOrder === 'asc') {
-        this.products.sort((a, b) => a.price - b.price);
+        this.filteredProducts.sort((a, b) => a.price - b.price);
       } else {
-        this.products.sort((a, b) => b.price - a.price);
+        this.filteredProducts.sort((a, b) => b.price - a.price);
       }
     },
     async searchProducts() {
       if (this.searchQuery.trim() === '') {
-        // If the search query is empty, reset the filtered products
         this.$store.commit('setFilteredProducts', []);
       } else {
-        // Filter products based on the searchQuery and update filteredProducts
         const filteredProducts = this.products.filter((product) =>
           product.prodName.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
         this.$store.commit('setFilteredProducts', filteredProducts);
       }
     },
-    filterByCategory(Category) {
-      if (Category === null) {
-        this.$store.commit('setFilteredProducts', this.products);
-      } else {
-        const filteredProducts = this.products.filter(product => product.category === Category);
-        this.$store.commit('setFilteredProducts', filteredProducts);
-      }
-    },
     addToCart(product) {
       this.$store.dispatch('addCart', product)
-    }
+      sweet({
+        title: 'Added to Cart',
+        text: `${product.prodName} has been added to your cart.`,
+        icon: 'success',
+        timer: 2000,
+        button: false,
+      });
+    },
+    selectCategory(category) {
+      if (category === null) {
+        this.$store.commit('setFilteredProducts', this.products);
+      } else {
+        const filtered = this.products.filter(product => product.Category === category);
+        this.$store.commit('setFilteredProducts', filtered);
+      }
+    },
   },
   data() {
     return {
       sortOrder: 'asc',
       searchQuery: '',
+      // filteredProducts: [],
     };
   },
 };

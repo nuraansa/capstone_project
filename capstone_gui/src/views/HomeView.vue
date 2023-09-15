@@ -36,7 +36,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" id="featured">
           <div class="card h-100 shadow-lg">
-            <img src="https://i.ibb.co/d7FfPR5/IMG-2505-A.jpg" class="card-img-top" alt="...">
+            <img src="https://i.ibb.co/d7FfPR5/IMG-2505-A.jpg" class="card-img-top" alt="..." data-aos="fade-up">
             <div class="card-body">
               <h5 class="card-title"></h5>
               <p class="card-text">Elevate your style with our jewelry collection, blending timeless
@@ -46,7 +46,7 @@
         </div>
         <div class="col" id="featured">
           <div class="card h-100 shadow-lg">
-            <img src="https://i.ibb.co/0Ff15Pq/IMG-2503-A.jpg" class="card-img-top" alt="...">
+            <img src="https://i.ibb.co/0Ff15Pq/IMG-2503-A.jpg" class="card-img-top" alt="..." data-aos="fade-up">
             <div class="card-body">
               <h5 class="card-title"></h5>
               <p class="card-text">Radiate luxury and elegance with our exquisite gold jewelry pieces, meticulously
@@ -56,7 +56,7 @@
         </div>
         <div class="col" id="featured">
           <div class="card h-100 shadow-lg">
-            <img src="https://i.ibb.co/VDQmDZr/IMG-2506-A.jpg" class="card-img-top" alt="...">
+            <img src="https://i.ibb.co/VDQmDZr/IMG-2506-A.jpg" class="card-img-top" alt="..." data-aos="fade-up">
             <div class="card-body">
               <h5 class="card-title"></h5>
               <p class="card-text">Transform your everyday look into a statement of glamour with our
@@ -71,7 +71,7 @@
     <div class="card mb-3 mx-auto" style="max-width: 64rem; border: none;">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="https://i.ibb.co/n3rdsg7/IMG-2504.jpg" class="img-fluid rounded-start" alt="..." id="featured">
+          <img src="https://i.ibb.co/n3rdsg7/IMG-2504.jpg" class="img-fluid rounded-start" alt="..." data-aos="fade-up" id="featured">
         </div>
         <div class="col-md-8 d-flex" style="align-items: center;">
           <div class="card-body">

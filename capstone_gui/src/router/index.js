@@ -58,21 +58,6 @@ const routes = [
     name: 'user',
     component: () => import('../views/UserView.vue')
   },
-  {
-    path: '/necklaces',
-    name: 'necklaces',
-    component: () => import('../views/NecklacesView.vue')
-  },
-  {
-    path: '/earrings',
-    name: 'earrings',
-    component: () => import('../views/EarringsView.vue')
-  },
-  {
-    path: '/checkout',
-    name: 'checkout',
-    component: () => import('../views/CheckoutView.vue')
-  }
 ]
 
 const router = createRouter({

@@ -58,7 +58,7 @@
                     </div>
                     <div>
                         <button @click="clearCart" class="clear-cart-button m-1">Clear Cart</button>
-                        <button @click="checkout" class="check-btn m-1">Checkout</button>
+                        <button @click="checkout" class="check-btn m-1">Checkout <i class="bi bi-bag-heart" style="font-size: 1rem; "></i></button>
                     </div>
                 </div>
             </div>
@@ -97,12 +97,9 @@ export default {
             JSON.parse(localStorage.getItem("cart"));
             this.$store.commit("setCart", cartData);  // latest update
         },
-        clearCart(cartData) {
-            localStorage.removeItem('cart')
-            location.reload()
-            // localStorage.setItem("cart", JSON.stringify(cartData)); // updates cart
-            // JSON.parse(localStorage.getItem("cart"));
-            // this.$store.commit("setCart", cartData);  
+        clearCart() {
+            localStorage.removeItem('cart'); 
+            this.$store.commit('setCart', []); 
         },
         checkout() {
             sweet({
@@ -161,7 +158,9 @@ td {
     padding: 1.5rem;
     font-size: 1.2rem;
 }
-
+.total-box{
+    font-size: 1.7rem;
+}
 .btn1 {
     background-color: #92700f;
     color: white;
@@ -230,4 +229,5 @@ img {
 
 /* .col {
  padding: 0;
-} */</style>
+} */
+</style>

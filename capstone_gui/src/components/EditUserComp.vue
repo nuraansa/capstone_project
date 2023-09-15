@@ -83,6 +83,7 @@ export default {
     },
     updateUser() {
       this.$store.dispatch("editUser", this.editUsers)
+      location.reload();
     }
   },
 };
